@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Hearken</string>
+    <string name="left_fragment">This is a left fragment</string>
+    <string name="right_fragment">This is a right fragment</string>
+    <string name="right_fragment2">This is a right2 fragment</string>
+
 </resources>

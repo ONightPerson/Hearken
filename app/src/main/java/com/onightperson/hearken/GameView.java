@@ -3,6 +3,7 @@ package com.onightperson.hearken;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -26,8 +27,17 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback, Run
     private DrawBackground mDrawBackground;
     private boolean mIsRun;
 
-    public GameView(Context context, String backgroud) {
+    public GameView(Context context) {
         super(context);
+        initialize(context, "selectback01.jpg");
+    }
+
+    public GameView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        initialize(context, "selectback01.jpg");
+    }
+
+    public void initialize(Context context, String backgroud) {
         mContext = context;
         mBackground = backgroud;
         mSurfaceHolder = getHolder();
