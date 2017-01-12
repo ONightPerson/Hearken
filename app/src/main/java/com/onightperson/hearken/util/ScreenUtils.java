@@ -8,7 +8,7 @@ import android.view.WindowManager;
  * Created by liubaozhu on 17/1/4.
  */
 
-public class ScreenUtil {
+public class ScreenUtils {
 
     public static int getWidth(Context context) {
         WindowManager manager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);

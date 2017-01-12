@@ -3,6 +3,7 @@
           package="com.onightperson.hearken">
 
     <application
+        android:name=".AntApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -15,7 +16,18 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".SplitActivity"/>
+
+        <activity android:name=".news.ui.NewsActivity"/>
+
+        <activity android:name=".news.ui.NewsContentActivity"/>
+
+        <service android:name=".service.AlarmIntentService"
+                 android:process=":background"
+                 android:exported="false">
+            <intent-filter>
+                <action android:name="action.alarm.notification.for.test"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

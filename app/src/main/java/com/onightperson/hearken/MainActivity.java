@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.onightperson.hearken.news.ui.NewsActivity;
+
 public class MainActivity extends Activity implements View.OnClickListener{
 
-    private Button mLaunchSplitBtn;
+    private Button mLaunchNewsBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,15 +21,15 @@ public class MainActivity extends Activity implements View.OnClickListener{
     }
 
     private void initViews() {
-        mLaunchSplitBtn = (Button) findViewById(R.id.start_split_activity);
-        mLaunchSplitBtn.setOnClickListener(this);
+        mLaunchNewsBtn = (Button) findViewById(R.id.start_news_activity);
+        mLaunchNewsBtn.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v) {
-        if (mLaunchSplitBtn == v) {
-            Intent intent = new Intent(this, SplitActivity.class);
+        if (mLaunchNewsBtn == v) {
+            Intent intent = new Intent(this, NewsActivity.class);
             startActivity(intent);
         }
     }
