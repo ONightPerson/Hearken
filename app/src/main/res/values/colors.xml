@@ -7,5 +7,8 @@
     <color name="red">#ffff0000</color>
     <color name="blue">#ff0000ff</color>
     <color name="green">#ff00ff00</color>
+    <color name="dark">#ff000000</color>
+    <color name="common_dark_grey">#8a000000</color>
+    <color name="common_grey">#4c000000</color>
 
 </resources>

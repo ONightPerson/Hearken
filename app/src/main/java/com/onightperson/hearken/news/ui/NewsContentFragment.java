@@ -1,14 +1,15 @@
-package com.onightperson.hearken.fragment;
+package com.onightperson.hearken.news.ui;
 
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.onightperson.hearken.R;
 
@@ -16,13 +17,24 @@ import com.onightperson.hearken.R;
  * Created by liubaozhu on 17/1/4.
  */
 
-public class RightFragment extends Fragment {
-    private static final String TAG = "RightFragment";
-    
+public class NewsContentFragment extends Fragment {
+    private static final String TAG = "NewsContentFragment";
+
+    private TextView mTitleView;
+    private TextView mContentView;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_right, container, false);
+        View view = inflater.inflate(R.layout.fragment_news_content, container, false);
+        mTitleView = (TextView) view.findViewById(R.id.news_title_text_view);
+        mContentView = (TextView) view.findViewById(R.id.news_content_text_view);
+        Log.d(TAG, "onCreateView--mTitleView: " + mTitleView);
+        return view;
+    }
+
+    public void setContent(String title, String content) {
+        mTitleView.setText(title);
+        mContentView.setText(content);
     }
 
     @Override

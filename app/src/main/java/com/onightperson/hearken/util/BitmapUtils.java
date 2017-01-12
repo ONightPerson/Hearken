@@ -12,8 +12,8 @@ import java.io.IOException;
  * Created by liubaozhu on 17/1/4.
  */
 
-public class BitmapUtil {
-    private static final String TAG = "BitmapUtil";
+public class BitmapUtils {
+    private static final String TAG = "BitmapUtils";
 
     public static Bitmap decodeSampleBitmap(Context context, String resName,
                                             int reqWidth, int reqHeight) {

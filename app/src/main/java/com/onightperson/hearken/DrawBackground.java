@@ -5,8 +5,8 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
-import com.onightperson.hearken.util.BitmapUtil;
-import com.onightperson.hearken.util.ScreenUtil;
+import com.onightperson.hearken.util.BitmapUtils;
+import com.onightperson.hearken.util.ScreenUtils;
 
 /**
  * Created by liubaozhu on 17/1/4.
@@ -34,13 +34,13 @@ public class DrawBackground implements IGameDraw {
 
     @Override
     public void init(Object... objects) {
-        mBackgroundBottom = BitmapUtil.decodeSampleBitmap(mContext, (String) objects[0],
-                ScreenUtil.getWidth(mContext), ScreenUtil.getHeight(mContext));
-        mBackgroundTop = BitmapUtil.getVerticalFlipBitmap(mBackgroundBottom);
+        mBackgroundBottom = BitmapUtils.decodeSampleBitmap(mContext, (String) objects[0],
+                ScreenUtils.getWidth(mContext), ScreenUtils.getHeight(mContext));
+        mBackgroundTop = BitmapUtils.getVerticalFlipBitmap(mBackgroundBottom);
         //初始化时当前图片位置y坐标
         mBottomY = 0;
         //初始化时屏幕外上方图片位置y坐标
-        mTopY = -ScreenUtil.getHeight(mContext);
+        mTopY = -ScreenUtils.getHeight(mContext);
         mSpeedY = 10;
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setColor(mContext.getResources().getColor(R.color.white));
@@ -57,12 +57,12 @@ public class DrawBackground implements IGameDraw {
         mBottomY += mSpeedY;
         mTopY += mSpeedY;
         //判断 移出屏幕就重新设置到屏幕上方
-        if (mBottomY > ScreenUtil.getHeight(mContext)) {
-            mBottomY = -ScreenUtil.getHeight(mContext);
+        if (mBottomY > ScreenUtils.getHeight(mContext)) {
+            mBottomY = -ScreenUtils.getHeight(mContext);
         }
 
-        if (mTopY > ScreenUtil.getHeight(mContext)) {
-            mTopY = -ScreenUtil.getHeight(mContext);
+        if (mTopY > ScreenUtils.getHeight(mContext)) {
+            mTopY = -ScreenUtils.getHeight(mContext);
         }
     }
 }
