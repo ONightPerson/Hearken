@@ -10,16 +10,18 @@ import android.view.WindowManager;
 
 public class ScreenUtils {
 
-    public static int getWidth(Context context) {
-        WindowManager manager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+    public static int getWidth() {
+        WindowManager manager = (WindowManager) ApplicationUtils.getAppContext()
+                .getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics outMetrics = new DisplayMetrics();
         manager.getDefaultDisplay().getMetrics(outMetrics);
 
         return outMetrics.widthPixels;
     }
 
-    public static int getHeight(Context context) {
-        WindowManager manager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+    public static int getHeight() {
+        WindowManager manager = (WindowManager) ApplicationUtils.getAppContext()
+                .getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics outMetrics = new DisplayMetrics();
         manager.getDefaultDisplay().getMetrics(outMetrics);
 

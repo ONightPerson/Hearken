@@ -1,17 +1,16 @@
 package com.onightperson.hearken.news.ui;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.v4.app.FragmentActivity;
 
 import com.onightperson.hearken.R;
+import com.onightperson.hearken.base.BaseFragmentActivity;
 import com.onightperson.hearken.news.constant.NewsConstant;
 
 /**
  * Created by liubaozhu on 17/1/10.
  */
 
-public class NewsContentActivity extends FragmentActivity {
+public class NewsContentActivity extends BaseFragmentActivity {
     private static final String TAG = "NewsContentActivity";
 
     @Override

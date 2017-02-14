@@ -1,4 +1,4 @@
-package com.onightperson.hearken;
+package com.onightperson.hearken.game;
 
 import android.graphics.Canvas;
 
@@ -6,7 +6,7 @@ import android.graphics.Canvas;
  * Created by liubaozhu on 17/1/4.
  */
 
-interface IGameDraw {
+interface IDraw {
 
     /**
      * 初始化内容
@@ -22,6 +22,6 @@ interface IGameDraw {
     /**
      * 数据更新
      */
-    void updateGameUI();
+    void updateUI();
 
 }

@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.onightperson.hearken.R;
+import com.onightperson.hearken.base.BaseFragmentActivity;
 import com.onightperson.hearken.news.constant.NewsConstant;
 import com.onightperson.hearken.news.ui.adapter.NewsTitleAdapter;
 import com.onightperson.hearken.news.utils.NewsUtils;
@@ -19,7 +20,7 @@ import com.onightperson.hearken.news.utils.NewsUtils;
  * Created by liubaozhu on 17/1/10.
  */
 
-public class NewsActivity extends FragmentActivity implements AdapterView.OnItemClickListener {
+public class NewsActivity extends BaseFragmentActivity implements AdapterView.OnItemClickListener {
     private static final String TAG = "NewsActivity";
 
     //ui

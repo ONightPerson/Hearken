@@ -14,7 +14,7 @@
         android:layout_height="40dp"
         android:layout_alignParentBottom="true"/>
 
-    <com.onightperson.hearken.GameView
+    <com.onightperson.hearken.game.GameView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/start_news_activity"/>

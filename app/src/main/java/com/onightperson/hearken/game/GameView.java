@@ -1,11 +1,12 @@
-package com.onightperson.hearken;
+package com.onightperson.hearken.game;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+
+import com.onightperson.hearken.R;
 
 /**
  * Created by liubaozhu on 17/1/4.
@@ -23,8 +24,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback, Run
     /**
      * 画笔
      */
-    private String mBackground;
-    private DrawBackground mDrawBackground;
+    private String mBackgroundName;
+    private Background mBackground;
     private boolean mIsRun;
 
     public GameView(Context context) {
@@ -39,13 +40,13 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback, Run
 
     public void initialize(Context context, String backgroud) {
         mContext = context;
-        mBackground = backgroud;
+        mBackgroundName = backgroud;
         mSurfaceHolder = getHolder();
         mSurfaceHolder.addCallback(this);
     }
 
     private void initGame() {
-        mDrawBackground = new DrawBackground(mContext, mBackground);
+        mBackground = new Background(mContext, mBackgroundName);
     }
 
     private void onGameDraw() {
@@ -54,8 +55,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback, Run
         }
 
         mCanvas.drawColor(mContext.getResources().getColor(R.color.white));
-        mDrawBackground.onDraw(mCanvas);
-        mDrawBackground.updateGameUI();
+        mBackground.onDraw(mCanvas);
+        mBackground.updateUI();
     }
 
     @Override
