@@ -24,6 +24,10 @@
 
         <activity android:name=".news.ui.NewsContentActivity"/>
 
+        <activity android:name=".anim.CustomViewActivity"/>
+
+        <activity android:name=".viewtest.RecyclerTestActivity"/>
+
         <service android:name=".service.AlarmIntentService"
                  android:process=":background"
                  android:exported="false">
@@ -32,5 +36,6 @@
             </intent-filter>
         </service>
     </application>
+
 
 </manifest>
