@@ -10,5 +10,6 @@
     <color name="dark">#ff000000</color>
     <color name="common_dark_grey">#8a000000</color>
     <color name="common_grey">#4c000000</color>
+    <color name="bkg_card">#d3d8ff</color>
 
 </resources>
