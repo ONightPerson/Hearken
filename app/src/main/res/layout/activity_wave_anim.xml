@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <com.onightperson.hearken.anim.WaveView
+        android:id="@+id/wave_view"
+        android:layout_width="match_parent"
+        android:layout_height="220dp">
+
+    </com.onightperson.hearken.anim.WaveView>
+
+    <Button
+        android:id="@+id/change_percent_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="改变水波高度"/>
+
+    <Button
+        android:id="@+id/change_wave_length"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="改变水波波长"/>
+
+    <Button
+        android:id="@+id/change_wave_pace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="改变水波波速"/>
+
+    <Button
+        android:id="@+id/change_wave_zhengfu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="改变水波振幅"/>
+
+</LinearLayout>

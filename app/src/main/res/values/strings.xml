@@ -5,4 +5,9 @@
     <string name="right_fragment2">This is a right2 fragment</string>
     <string name="notification_alarm_title">This is a alarm notification</string>
     <string name="notification_alarm_text">try to click</string>
+    <string name="contact_det">联系人详情</string>
+    <string name="contact_name">名字</string>
+    <string name="contact_sur_name">姓</string>
+    <string name="contact_email">邮件</string>
+    <string name="contact_address">地址</string>
 </resources>

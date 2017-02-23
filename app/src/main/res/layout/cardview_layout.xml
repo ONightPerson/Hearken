@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    card_view:cardCornerRadius="4dp"
+    android:layout_margin="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/contact_title"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="#d3d8ff"
+            android:text="@string/contact_det"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="14dp"/>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/contact_name"
+            android:gravity="center"
+            android:textColor="@color/blue"
+            android:textSize="10dp"
+            android:layout_below="@id/contact_title"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/sur_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/contact_sur_name"
+            android:gravity="center"
+            android:textColor="@color/blue"
+            android:textSize="10dp"
+            android:layout_below="@id/name"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/contact_email"
+            android:gravity="center"
+            android:textColor="@color/blue"
+            android:textSize="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="150dp"
+            android:layout_alignBaseline="@id/name"/>
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/contact_address"
+            android:gravity="center"
+            android:textColor="@color/blue"
+            android:textSize="10dp"
+            android:layout_below="@id/email"
+            android:layout_marginTop="10dp"
+            android:layout_alignBaseline="@id/sur_name"
+            android:layout_alignLeft="@id/email"/>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
