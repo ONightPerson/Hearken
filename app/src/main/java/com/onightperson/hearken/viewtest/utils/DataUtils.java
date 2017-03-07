@@ -2,11 +2,11 @@ package com.onightperson.hearken.viewtest.utils;
 
 import android.content.Context;
 import android.util.TypedValue;
-import android.view.View;
 
 import com.onightperson.hearken.viewtest.model.AnimContent;
 import com.onightperson.hearken.viewtest.model.ContactContent;
 import com.onightperson.hearken.viewtest.model.ContentBase;
+import com.onightperson.hearken.viewtest.model.ContactInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,9 +16,8 @@ import java.util.List;
  */
 
 public class DataUtils {
-
-    public static List<ContentBase> getContentList() {
-        List<ContentBase> contentList = new ArrayList<>();
+    public static List<ContentBase> getContactInfoList() {
+        List<ContentBase> contactInfoList = new ArrayList<>();
 
         ContactContent contactInfo = new ContactContent();
         contactInfo.name = "Suson";
@@ -27,7 +26,7 @@ public class DataUtils {
         contactInfo.email = "susonjfefe@gmail.com";
         contactInfo.addr = "New York";
         contactInfo.contentType = 0;
-        contentList.add(contactInfo);
+        contactInfoList.add(contactInfo);
 
         contactInfo = new ContactContent();
         contactInfo.name = "Jack";
@@ -36,7 +35,10 @@ public class DataUtils {
         contactInfo.email = "jacknngf@gmail.com";
         contactInfo.addr = "Washingtn";
         contactInfo.contentType = 0;
-        contentList.add(contactInfo);
+        contactInfoList.add(contactInfo);
+
+        contactInfo = new ContactContent();
+        contactInfoList.add(contactInfo);
 
         contactInfo = new ContactContent();
         contactInfo.name = "Lebron";
@@ -45,13 +47,13 @@ public class DataUtils {
         contactInfo.email = "lebronlbj@gmail.com";
         contactInfo.addr = "Cleveland";
         contactInfo.contentType = 0;
-        contentList.add(contactInfo);
+        contactInfoList.add(contactInfo);
 
         AnimContent animContent = new AnimContent();
         animContent.contentType = 1;
-        contentList.add(animContent);
+        contactInfoList.add(animContent);
 
-        return contentList;
+        return contactInfoList;
     }
 
     public static float dp2px(Context cxt, float dp) {

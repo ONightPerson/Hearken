@@ -15,6 +15,7 @@ import com.onightperson.hearken.viewtest.utils.DataUtils;
 
 import java.util.List;
 
+
 /**
  * Created by liubaozhu on 17/2/21.
  */
@@ -31,7 +32,6 @@ public class RecyclerTestActivity extends Activity implements View.OnClickListen
     private List<ContentBase> mContentList;
     private ContentAdapter.AnimViewHolder mAnimViewHoler;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +46,7 @@ public class RecyclerTestActivity extends Activity implements View.OnClickListen
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(linearLayoutManager);
-        mContentList = DataUtils.getContentList();
+        mContentList = DataUtils.getContactInfoList();
         mRecyclerView.setAdapter(new ContentAdapter(mContentList));
 
 

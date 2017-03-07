@@ -31,6 +31,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mLaunchRecyclerViewBtn.setOnClickListener(this);
         mLaunchTextChangeBtn = (Button) findViewById(R.id.launch_text_change_activity);
         mLaunchTextChangeBtn.setOnClickListener(this);
+
     }
 
     @Override
@@ -45,5 +46,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             Intent intent = new Intent(this, TextChangeActivity.class);
             startActivity(intent);
         }
+
+        /*Intent intent = new Intent(this, RecyclerTestActivity.class);
+        startActivity(intent);*/
     }
 }
