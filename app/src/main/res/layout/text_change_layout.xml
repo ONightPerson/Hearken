@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/news_title_list_view_text_size"
+        android:layout_gravity="center"/>
+
+
+    <Button
+        android:id="@+id/in_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="in_in"/>
+
+    <Button
+        android:id="@+id/in_ex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="in_ex"/>
+
+    <Button
+        android:id="@+id/ex_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ex_in"/>
+
+    <Button
+        android:id="@+id/ex_ex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ex_ex"/>
+</LinearLayout>

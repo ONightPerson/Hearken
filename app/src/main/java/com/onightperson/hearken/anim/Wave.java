@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.DrawFilter;
 import android.graphics.Paint;
 import android.graphics.PaintFlagsDrawFilter;
@@ -48,6 +49,7 @@ public class Wave extends View {
 
     Bitmap bitmapBuffer;
     Canvas temCanvas;
+    private long mTime;
 
     private boolean mConfigChanged = false;
     private Long lastRefresh = 0L;
@@ -99,7 +101,10 @@ public class Wave extends View {
         mForegroundLineWavePaint.setAntiAlias(true);
         // 前景波填充画笔
         mForegroundWavePaint.setStrokeWidth(1.0f);
-        mForegroundWavePaint.setColor(mForegroundWaveColor);
+//        mForegroundWavePaint.setColor(mForegroundWaveColor);
+        mForegroundWavePaint.setColor(Color.BLUE);
+        mForegroundWavePaint.setAlpha(30);
+
         mForegroundWavePaint.setAntiAlias(true);
         // 背景波描边画笔
         mBackgroundLineWavePaint.setStrokeWidth(1.0f);
@@ -107,7 +112,9 @@ public class Wave extends View {
         mBackgroundLineWavePaint.setAntiAlias(true);
         // 背景波填充画笔
         mBackgroundWavePaint.setStrokeWidth(1.0f);
-        mBackgroundWavePaint.setColor(mBackgroundWaveColor);
+//        mBackgroundWavePaint.setColor(mBackgroundWaveColor);
+        mBackgroundWavePaint.setColor(Color.BLUE);
+        mBackgroundWavePaint.setAlpha(15);
         mBackgroundWavePaint.setAntiAlias(true);
 
         if (null != bitmapBuffer) {
@@ -150,6 +157,8 @@ public class Wave extends View {
                 if (mConfigChanged) {
                     initWave();
                 }
+                Log.d(TAG, "onDraw--时间差: " + (start - mTime));
+                mTime = start;
                 if (null != bitmapBuffer) {
                     bitmapBuffer.eraseColor(0x00000000);
                     temCanvas.setDrawFilter(mDrawFilter);
@@ -174,6 +183,7 @@ public class Wave extends View {
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
+        Log.d(TAG, "onLayout--initWave");
         initWave();
     }
 

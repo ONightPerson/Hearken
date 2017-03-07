@@ -8,7 +8,8 @@
     android:orientation="vertical"
     tools:context="com.onightperson.hearken.MainActivity">
 
-    <com.onightperson.hearken.wave.Wave
+    <com.onightperson.hearken.wave.WaveView
+        android:layout_centerInParent="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="200dp"/>
 </RelativeLayout>

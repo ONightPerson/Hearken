@@ -4,35 +4,22 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <com.onightperson.hearken.anim.WaveView
-        android:id="@+id/wave_view"
-        android:layout_width="match_parent"
-        android:layout_height="220dp">
-
-    </com.onightperson.hearken.anim.WaveView>
 
     <Button
-        android:id="@+id/change_percent_btn"
+        android:id="@+id/launch_wave_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="改变水波高度"/>
+        android:text="启动波形界面"/>
 
     <Button
-        android:id="@+id/change_wave_length"
+        android:id="@+id/launch_recyclerview_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="改变水波波长"/>
+        android:text="启动RecyclerView界面"/>
 
     <Button
-        android:id="@+id/change_wave_pace"
+        android:id="@+id/launch_text_change_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="改变水波波速"/>
-
-    <Button
-        android:id="@+id/change_wave_zhengfu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="改变水波振幅"/>
-
+        android:text="启动字体设置界面"/>
 </LinearLayout>
