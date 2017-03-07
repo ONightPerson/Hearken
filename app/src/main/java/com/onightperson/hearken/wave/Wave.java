@@ -58,6 +58,7 @@ public class Wave extends View {
 
     public Wave(Context context, AttributeSet attrs) {
         super(context, attrs);
+        Log.d(TAG, "Wave");
         init(context);
     }
 
@@ -121,6 +122,13 @@ public class Wave extends View {
 //        drawWave(mTempCanvas, mBackgroundWavePaint, mBackgroundOffset);
 //        drawWave(mTempCanvas, mForegroundWavePaint, mForegroundOffset);
     }
+
+    @Override
+    protected void onVisibilityChanged(View changedView, int visibility) {
+        super.onVisibilityChanged(changedView, visibility);
+        Log.d(TAG, "onVisibilityChanged--visibility: " + visibility);
+    }
+
 
     @Override
     protected void onAttachedToWindow() {
@@ -242,7 +250,6 @@ public class Wave extends View {
 
         for (int i = 0; i < length; i++) {
             yPos[i] = (float) (balance + amplitude * Math.sin(omega * i));
-            Log.d(TAG, "getSinPathYPos: y坐标： " + yPos[i]);
         }
         return yPos;
     }
