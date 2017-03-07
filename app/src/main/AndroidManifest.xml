@@ -28,6 +28,11 @@
 
         <activity android:name=".viewtest.RecyclerTestActivity"/>
 
+        <activity android:name=".wave.WaveActivity"
+            android:hardwareAccelerated="false"/>
+
+        <activity android:name=".text.TextChangeActivity"/>
+
         <service android:name=".service.AlarmIntentService"
                  android:process=":background"
                  android:exported="false">

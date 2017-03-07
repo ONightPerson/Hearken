@@ -11,5 +11,7 @@
     <color name="common_dark_grey">#8a000000</color>
     <color name="common_grey">#4c000000</color>
     <color name="bkg_card">#d3d8ff</color>
+    <color name="foreground_color">#cc619bf7</color>
+    <color name="background_color">#664789f4</color>
 
 </resources>

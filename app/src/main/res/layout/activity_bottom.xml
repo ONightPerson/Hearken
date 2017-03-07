@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.onightperson.hearken.wave.BottomLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottom_layout"
+    android:layout_width="match_parent"
+    android:layout_height="260dp"
+    android:background="#33000000">
+
+
+  <!--  <LinearLayout
+        android:id="@+id/wave_layout"
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <com.onightperson.hearken.wave.Wave
+            android:id="@+id/wave_view"
+            android:layout_width="match_parent"
+            android:layout_height="9dp"/>
+
+        <view
+            android:id="@+id/still_view"
+            class="com.onightperson.hearken.wave.Wave$StillView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+    </LinearLayout>-->
+    
+    <com.onightperson.hearken.wave.Wave
+        android:id="@+id/wave"
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:layout_alignParentBottom="true"/>
+    
+    <RelativeLayout
+        android:id="@+id/text_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/wave"
+        android:layout_marginBottom="52dp">
+
+        <TextView
+            android:id="@+id/protected_days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:layout_centerHorizontal="true"
+            android:textColor="#8a000000"/>
+        
+        <View
+            android:layout_width="120px"
+            android:layout_height="1px"
+            android:layout_toLeftOf="@id/protected_days"
+            android:layout_marginRight="8dp"
+            android:layout_centerVertical="true"
+            android:background="#19000000"/>
+
+        <View
+            android:layout_width="120px"
+            android:layout_height="1px"
+            android:layout_toRightOf="@id/protected_days"
+            android:layout_marginLeft="8dp"
+            android:layout_centerVertical="true"
+            android:background="#19000000"/>
+    </RelativeLayout>
+</com.onightperson.hearken.wave.BottomLayout>
