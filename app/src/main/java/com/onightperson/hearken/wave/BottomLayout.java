@@ -36,6 +36,7 @@ public class BottomLayout extends RelativeLayout {
 
     public BottomLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
+        Log.d(TAG, "BottomLayout");
     }
 
     @Override
@@ -54,9 +55,8 @@ public class BottomLayout extends RelativeLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
+        Log.d(TAG, "onFinishInflate");
         initData(getContext());
-
-        Log.d(TAG, "onFinishInflate--mTextLayout: " + mTextLayout);
     }
 
     private void initData(Context context) {
@@ -72,6 +72,7 @@ public class BottomLayout extends RelativeLayout {
         mProtectedDaysView.setText(spanBuilder);
         mWaveView = (Wave) findViewById(R.id.wave);
         mWaveParams = (LayoutParams) mWaveView.getLayoutParams();
+        Log.d(TAG, "initData: wave height: " + mWaveParams.height + ", wave height by getheight: " + mWaveView.getHeight());
 
         mTextLayout = (RelativeLayout) findViewById(R.id.text_area);
         mInitialWaveHeight = (int) DataUtils.dp2px(context, 12);
