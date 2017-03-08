@@ -3,11 +3,13 @@ package com.onightperson.hearken.wave;
 import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.AbsoluteSizeSpan;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
@@ -22,70 +24,51 @@ import com.onightperson.hearken.R;
 public class BottomLayout extends RelativeLayout {
     private static final String TAG = "BottomLayout";
 
-    private static final int SNAP_VELOCITY_LIMIT = 600;
+    private static final int SNAP_VELOCITY_LIMIT = 500;
 
-    private static int REFRESH_INTERVAL = 30;
-    private RelativeLayout mTextLayout;
     private TextView mProtectedDaysView;
     private Wave mWaveView;
     private LayoutParams mWaveParams;
 
-    private int textSize = 20;
     private int mInitialWaveHeight = 0;
     //移动的位移
     private float mDisplacement = 0.0f;
-    private Thread mDrawThread;
-    private boolean mKeepAlive;
     private ValueAnimator mDropDownAnim;
     private ValueAnimator mDragUpAnim;
     private float mCurY;
     private VelocityTracker mVelocityTracker;
-    private int mInitialNetWaveHeight;
 
 
     public BottomLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
-        Log.d(TAG, "BottomLayout");
     }
 
     @Override
     protected void onVisibilityChanged(View changedView, int visibility) {
         super.onVisibilityChanged(changedView, visibility);
-        mTextLayout = (RelativeLayout) findViewById(R.id.text_area);
-        Log.d(TAG, "onVisibilityChanged--mTextLayout: " + mTextLayout);
     }
 
     @Override
     public void onViewAdded(View child) {
         super.onViewAdded(child);
-        Log.d(TAG, "onViewAdded--child: " + child);
     }
 
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        Log.d(TAG, "onFinishInflate");
         initData(getContext());
     }
 
     private void initData(Context context) {
-        mTextLayout = (RelativeLayout) findViewById(R.id.text_area);
-
-        //保护天数字体设置
         int protectedDays = DataUtils.getProtectedDays();
-        String protectedInfo = context.getString(R.string.protected_time, protectedDays);
         mProtectedDaysView = (TextView) findViewById(R.id.protected_days);
-
-        SpannableStringBuilder spanBuilder = new SpannableStringBuilder(protectedInfo);
-        spanBuilder.setSpan(new AbsoluteSizeSpan(textSize, true), 4, protectedInfo.length() - 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        mProtectedDaysView.setText(spanBuilder);
+        mProtectedDaysView.setTypeface(Typeface.createFromAsset(context.getAssets(),
+                "fonts/typeface.ttf"));
+        mProtectedDaysView.setText(String.valueOf(protectedDays));
         mWaveView = (Wave) findViewById(R.id.wave);
         mWaveParams = (LayoutParams) mWaveView.getLayoutParams();
-        Log.d(TAG, "initData: wave height: " + mWaveParams.height + ", wave height by getheight: " + mWaveView.getHeight());
 
-        mTextLayout = (RelativeLayout) findViewById(R.id.text_area);
         mInitialWaveHeight = (int) DataUtils.dp2px(context, 12);
-        mInitialNetWaveHeight = (int) DataUtils.dp2px(context, 9);
 
     }
 
@@ -103,32 +86,41 @@ public class BottomLayout extends RelativeLayout {
     }
 
     public void onDragUp(float y) {
-        stopDropDownAnim();
+        if (getScrollVelocity() < -SNAP_VELOCITY_LIMIT) {
+            stopDropDownAnim();
+            startDragUpAnim();
+        } else {
+            Log.d(TAG, "onDragUp: 开始上拉, 上拉的总高度为： " + 2 * mInitialWaveHeight);
+            long currentTime = System.currentTimeMillis();
+            stopDragUpAnim();
+            stopDropDownAnim();
+            Log.d(TAG, "onDragUp: 停止动画耗时: " + (System.currentTimeMillis() - currentTime) + " ms");
+            Log.d(TAG, "onDragUp: ");
 
+            int delatY = (int) (mCurY - y);
+            Log.d(TAG, "onDragUp: 距上次位置偏移: " + delatY);
+            if (delatY < 0) {
+                return;
+            }
+            mCurY = y;
+            Log.d(TAG, "onDragUp: 上次位移: " + mDisplacement);
+            mDisplacement += delatY;
+            Log.d(TAG, "onDragUp: 这次位移: " + mDisplacement);
+            if (mDisplacement >= 2 * mInitialWaveHeight) {
+                return;
+            }
+            mWaveParams.height += delatY;
+            mWaveView.calPath(mWaveParams.height);
+            requestLayout();
 
-        int delatY = (int) (mCurY - y);
-        Log.d(TAG, "onDragUp: delatY: " + delatY);
-        if (delatY < 0) {
-            return;
         }
-        mCurY = y;
-        mDisplacement += delatY;
-        Log.d(TAG, "onDragUp: mDisplacement: " + mDisplacement + ", 最大滑动距离： " + 2 * mInitialWaveHeight);
-        if (mDisplacement >= 2 * mInitialWaveHeight) {
-            return;
-        }
-        mWaveParams.height += delatY;
-        Log.d(TAG, "onDragUp: cal path before");
-        mWaveView.calPath(mWaveParams.height, delatY);
-        Log.d(TAG, "onDragUp: cal path after");
-        requestLayout();
-        Log.d(TAG, "onDragUp: requestLayout");
     }
 
     public void onDropDown() {
+        boolean isVelocityOverLimit = getScrollVelocity() < -SNAP_VELOCITY_LIMIT;
+        Log.d(TAG, "onDropDown: 速率大: " + isVelocityOverLimit);
 
-        Log.d(TAG, "onDropDown: velocity: " + getScrollVelocity());
-        if (getScrollVelocity() < -SNAP_VELOCITY_LIMIT) {
+        if (isVelocityOverLimit) {
             startDragUpAnim();
         } else {
             startDropDownAnim();
@@ -138,16 +130,22 @@ public class BottomLayout extends RelativeLayout {
     }
 
     private void startDragUpAnim() {
+        //drag anim is running
+        if (mDragUpAnim != null && mDragUpAnim.isRunning()) {
+            return;
+        }
+
+        Log.d(TAG, "startDragUpAnim");
+
         mDragUpAnim = ValueAnimator.ofFloat(mWaveView.getMeasuredHeight(), 3 * mInitialWaveHeight);
         mDragUpAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 float var = (Float) animation.getAnimatedValue();
                 float displacement = var - mInitialWaveHeight;
-                float offset = displacement - mDisplacement;
                 mDisplacement = displacement;
                 mWaveParams.height = (int) var;
-                mWaveView.calPath(mWaveParams.height, offset);
+                mWaveView.calPath(mWaveParams.height);
                 mWaveView.setLayoutParams(mWaveParams);
             }
         });
@@ -159,6 +157,7 @@ public class BottomLayout extends RelativeLayout {
 
             @Override
             public void onAnimationEnd(Animator animation) {
+                Log.d(TAG, "onAnimationEnd");
                 startDropDownAnim();
             }
 
@@ -177,6 +176,7 @@ public class BottomLayout extends RelativeLayout {
     }
 
     private void stopDragUpAnim() {
+        Log.d(TAG, "stopDragUpAnim");
         if (mDragUpAnim != null && mDragUpAnim.isRunning()) {
             mDragUpAnim.cancel();
         }
@@ -184,19 +184,20 @@ public class BottomLayout extends RelativeLayout {
 
 
     public void startDropDownAnim() {
+        if (mDropDownAnim != null && mDropDownAnim.isRunning()) {
+            return;
+        }
 
+        Log.d(TAG, "startDropDownAnim");
         mDropDownAnim = ValueAnimator.ofFloat(mWaveView.getMeasuredHeight(), mInitialWaveHeight);
         mDropDownAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 float var = (Float) animation.getAnimatedValue();
                 float displacement = var - mInitialWaveHeight;
-                float offset = displacement - mDisplacement;
-//                Log.d(TAG, "onAnimationUpdate: offset: " + offset);
                 mDisplacement = displacement;
-//                Log.d(TAG, "onAnimationUpdate: mDisplacement: " + mDisplacement);
                 mWaveParams.height = (int) var;
-                mWaveView.calPath(mWaveParams.height, offset);
+                mWaveView.calPath(mWaveParams.height);
                 mWaveView.setLayoutParams(mWaveParams);
             }
         });
@@ -212,17 +213,14 @@ public class BottomLayout extends RelativeLayout {
     }
 
     private void trackVelocity(MotionEvent e) {
-        Log.d(TAG, "addVelocityTracker--mVelocityTracker: " + mVelocityTracker);
         if (mVelocityTracker == null) {
             mVelocityTracker = VelocityTracker.obtain();
         }
         mVelocityTracker.addMovement(e);
-        Log.d(TAG, "addVelocityTracker--mVelocityTracker after: " + mVelocityTracker);
 
     }
 
     public void recycleVelocityTracker() {
-        Log.d(TAG, "recycleVelocityTracker");
         if (mVelocityTracker != null) {
             mVelocityTracker.clear();
             mVelocityTracker.recycle();
@@ -231,10 +229,8 @@ public class BottomLayout extends RelativeLayout {
     }
 
     public int getScrollVelocity() {
-        Log.d(TAG, "getScrollVelocity: mTracker: " + mVelocityTracker);
         if (mVelocityTracker != null) {
             mVelocityTracker.computeCurrentVelocity(1000);
-            Log.d(TAG, "getScrollVelocity: getYVelocity: " + mVelocityTracker.getYVelocity());
             return (int) mVelocityTracker.getYVelocity();
         }
         return 0;

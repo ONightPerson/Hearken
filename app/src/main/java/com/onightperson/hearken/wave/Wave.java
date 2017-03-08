@@ -3,7 +3,6 @@ package com.onightperson.hearken.wave;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.DrawFilter;
 import android.graphics.Matrix;
 import android.graphics.Paint;
@@ -16,6 +15,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 
+import com.onightperson.hearken.R;
 import com.onightperson.hearken.viewtest.utils.DataUtils;
 
 
@@ -32,7 +32,7 @@ public class Wave extends View {
 
     public static final float WAVE_DEFAULT_HEIGHT = 9f;
     private static final int WAVE_DEFAULT_PACE = 5;
-    private static final int WAVE_REFRESH_INTERVAL = 40; //刷新频率 35ms
+    private static final int WAVE_REFRESH_INTERVAL = 50; //刷新频率 35ms
     private static final int OFFSET_BACKGROUND_TO_FOREGROUND = 60;
 
     private int mWaveLength; //波长
@@ -47,7 +47,6 @@ public class Wave extends View {
     private Paint mBackgroundWavePaint;
     private Path mWavePath;
     private int mScreenWidth;
-    private long mLastRefreshTime;
     private Thread mDrawThread;
     private boolean mKeepAlive;
     private Bitmap mBitmapCache;
@@ -63,6 +62,7 @@ public class Wave extends View {
     }
 
     private void init(Context context) {
+        long currentTime = System.currentTimeMillis();
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             if (isHardwareAccelerated()) {
                 setLayerType(LAYER_TYPE_SOFTWARE, null);  //禁用硬件加速
@@ -79,13 +79,14 @@ public class Wave extends View {
         mForegroundOffset = 0;
         mBackgroundOffset = mInitalPosOffset;
 
+        int color = context.getResources().getColor(R.color.common_blue);
         mForegroundWavePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mForegroundWavePaint.setStrokeWidth(1.0f);
-        mForegroundWavePaint.setColor(Color.BLUE);
+        mForegroundWavePaint.setColor(color);
         mForegroundWavePaint.setAlpha(ALPHA_FOREGROUND_WAVE_COLOR);
         mBackgroundWavePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mBackgroundWavePaint.setStrokeWidth(1.0f);
-        mBackgroundWavePaint.setColor(Color.BLUE);
+        mBackgroundWavePaint.setColor(color);
         mBackgroundWavePaint.setAlpha(ALPHA_BACKGROUND_WAVE_COLOR);
         mBitmapCache = Bitmap.createBitmap(mScreenWidth, mWaveHeight, Bitmap.Config.ARGB_8888);
         mDrawFilter = new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG);
@@ -94,13 +95,14 @@ public class Wave extends View {
 
         mBalancePos = DataUtils.dp2px(context, WAVE_DEFAULT_HEIGHT) / 2;
         mRealWaveHeight = DataUtils.dp2px(context, 9);
-        calPath(mWaveHeight, 0);
+        calPath(mWaveHeight);
+        Log.d(TAG, "init: 初始化所用时间： " + (System.currentTimeMillis() - currentTime));
     }
 
-    public void calPath(int totalHeight, float offset) {
+    public void calPath(int totalHeight) {
         mWaveHeight = totalHeight;
         if (mWavePath == null) {
-            mWavePath = calWavePath(totalHeight, offset);
+            mWavePath = calWavePath(totalHeight);
         }
         float realWaveHeight = totalHeight / 3 + 5 * DataUtils.dp2px(getContext(), WAVE_DEFAULT_HEIGHT) / 9;
         float scale = realWaveHeight / mRealWaveHeight;
@@ -108,19 +110,8 @@ public class Wave extends View {
         Matrix matrix = new Matrix();
         matrix.setScale(1, scale);
         mWavePath.transform(matrix);
-        mWavePath.addRect(0, realWaveHeight, mScreenWidth + mWaveLength, totalHeight, Path.Direction.CCW);
-
-//        if (isInvalidate) {
-//            if (null != mBitmapCache) {
-//                mBitmapCache.recycle();
-//                mBitmapCache = null;
-//            }
-//            mBitmapCache = Bitmap.createBitmap(mScreenWidth, mWaveHeight, Bitmap.Config.ARGB_8888);
-//            mTempCanvas.setBitmap(mBitmapCache);
-//        }
-//        mBitmapCache.eraseColor(0x00000000);
-//        drawWave(mTempCanvas, mBackgroundWavePaint, mBackgroundOffset);
-//        drawWave(mTempCanvas, mForegroundWavePaint, mForegroundOffset);
+        mWavePath.addRect(0, realWaveHeight, mScreenWidth + mWaveLength,
+                totalHeight, Path.Direction.CCW);
     }
 
     @Override
@@ -146,17 +137,16 @@ public class Wave extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
+        long currentTime = System.currentTimeMillis();
         synchronized (Wave.this) {
             drawWave(canvas, mBackgroundWavePaint, mBackgroundOffset);
             drawWave(canvas, mForegroundWavePaint, mForegroundOffset);
 
         }
-
+        Log.d(TAG, "绘制花费时间：" + (System.currentTimeMillis() - currentTime));
     }
 
     public void startWaveAnim() {
-        Log.d(TAG, "startDropDownAnim initial--isAlive: "
-                + (mDrawThread != null && mDrawThread.isAlive()));
         synchronized (Wave.this) {
             if (mDrawThread != null && mDrawThread.isAlive()) {
                 return;
@@ -205,11 +195,7 @@ public class Wave extends View {
         return (offset + mWavePace) % mWaveLength;
     }
 
-    /**
-     * @param offset 位移
-     * @return
-     */
-    private Path calWavePath(int totalHeight, float offset) {
+    private Path calWavePath(int totalHeight) {
         float waveHeight = totalHeight / 3 + 5 * DataUtils.dp2px(getContext(), WAVE_DEFAULT_HEIGHT) / 9;
         float amplitude = waveHeight / 2.0f;
         Path path = new Path();
@@ -242,22 +228,5 @@ public class Wave extends View {
             yPos[i] = (float) (balance + amplitude * Math.sin(omega * i));
         }
         return yPos;
-    }
-
-    /**
-     * 水面下，静止区
-     */
-    public static class StillView extends View {
-        public StillView(Context context, AttributeSet attrs) {
-            super(context, attrs);
-        }
-
-        @Override
-        protected void onDraw(Canvas canvas) {
-            Log.d(TAG, "StillView--onDraw");
-            super.onDraw(canvas);
-            canvas.drawARGB(ALPHA_BACKGROUND_WAVE_COLOR, 0, 0, 255);
-            canvas.drawARGB(ALPHA_FOREGROUND_WAVE_COLOR, 0, 0, 255);
-        }
     }
 }
