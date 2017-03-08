@@ -32,7 +32,7 @@ public class Wave extends View {
 
     public static final float WAVE_DEFAULT_HEIGHT = 9f;
     private static final int WAVE_DEFAULT_PACE = 5;
-    private static final int WAVE_REFRESH_INTERVAL = 35; //刷新频率 35ms
+    private static final int WAVE_REFRESH_INTERVAL = 40; //刷新频率 35ms
     private static final int OFFSET_BACKGROUND_TO_FOREGROUND = 60;
 
     private int mWaveLength; //波长
@@ -146,20 +146,10 @@ public class Wave extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        Log.d(TAG, "onDraw");
-        long curTime = System.currentTimeMillis();
-        long diffTime = curTime - mLastRefreshTime;
-        Log.d(TAG, "onDraw: diffTime: " + diffTime);
         synchronized (Wave.this) {
-//            super.onDraw(canvas);
-//            if (null != mBitmapCache) {
-//                canvas.drawBitmap(mBitmapCache, 0, 0, null);
-//            }
-            canvas.drawARGB(0, 0,0,0);
             drawWave(canvas, mBackgroundWavePaint, mBackgroundOffset);
             drawWave(canvas, mForegroundWavePaint, mForegroundOffset);
 
-            mLastRefreshTime = curTime;
         }
 
     }
