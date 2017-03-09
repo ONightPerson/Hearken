@@ -27,8 +27,8 @@ public class RecyclerTestActivity extends Activity implements View.OnClickListen
 
     private float mCurRawY;
     private int mOffset = 0;
-    private boolean isBottomInit = true;
-    private boolean isDealDragDown = false;
+    private boolean isBottomNeedInit = true;
+    private boolean isNeedDealDragDown = false;
 
     private List<ContentBase> mContentList;
     private ContentAdapter.AnimViewHolder mAnimViewHoler;
@@ -56,45 +56,40 @@ public class RecyclerTestActivity extends Activity implements View.OnClickListen
 
             @Override
             public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
-                Log.d(TAG, "onInterceptTouchEvent--isBottomInit: " + isBottomInit);
                 if (!isSlideToBottom(rv)) {
-                    if (isDealDragDown && e.getAction() == MotionEvent.ACTION_UP) {
+                    Log.d(TAG, "onInterceptTouchEvent: isNeedDealDragDown: " + isNeedDealDragDown
+                            + ", 是否松手： " + (e.getAction() == MotionEvent.ACTION_UP));
+                    if (isNeedDealDragDown && e.getAction() == MotionEvent.ACTION_UP) {
                         mAnimViewHoler.bottomLayout.onDropDown();
-                        isBottomInit = false;
-                        isDealDragDown = false;
+                        isBottomNeedInit = true;
+                        isNeedDealDragDown = false;
                     }
                     return false;
-                } else if (isBottomInit) {
-                    Log.d(TAG, "onInterceptTouchEvent: init animview holer");
+                } else if (isBottomNeedInit) {
                     if (mAnimViewHoler == null) {
                         mAnimViewHoler = (ContentAdapter.AnimViewHolder)
                                 rv.findViewHolderForAdapterPosition(mContentList.size()-1);
                     }
-                    Log.d(TAG, "onInterceptTouchEvent: init animviewm holder finished");
 
                     mAnimViewHoler.bottomLayout.initDragOp(e.getRawY());
 
-                    mAnimViewHoler.bottomLayout.addVelocityTracker(e);
-                    isDealDragDown = true;
-                    isBottomInit = false;
+                    isNeedDealDragDown = true;
+                    isBottomNeedInit = false;
                 }
 
                 int action = e.getAction();
 
                 mAnimViewHoler.bottomLayout.addVelocityTracker(e);
-                Log.d(TAG, "onInterceptTouchEvent: action: " + action);
                 float y = e.getRawY();
                 switch (action) {
                     case MotionEvent.ACTION_MOVE:
                         if (mAnimViewHoler != null) {
-                            Log.d(TAG, "onInterceptTouchEvent: onDragUp before");
                             mAnimViewHoler.bottomLayout.onDragUp(y);
-                            Log.d(TAG, "onInterceptTouchEvent: onDragUp after");
 
                         }
                         break;
                     case MotionEvent.ACTION_UP:
-                        isBottomInit = true;
+                        isBottomNeedInit = true;
                         mAnimViewHoler.bottomLayout.onDropDown();
                         break;
                 }
@@ -119,7 +114,6 @@ public class RecyclerTestActivity extends Activity implements View.OnClickListen
         int verticalScrollExtent = recyclerView.computeVerticalScrollExtent();
         int scrollOffset = recyclerView.computeVerticalScrollOffset();
         int verticalScrollRange = recyclerView.computeVerticalScrollRange();
-        Log.i(TAG, "isSlideToBottom--verticalScrollExtent : " + verticalScrollExtent + "scrollOffset  :" + scrollOffset + " verticalScrollRange :" + verticalScrollRange);
         return verticalScrollExtent + scrollOffset
                 >= verticalScrollRange;
     }
