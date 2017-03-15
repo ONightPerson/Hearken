@@ -1,12 +1,11 @@
-package com.onightperson.hearken.viewtest.utils;
+package com.onightperson.hearken.recycle.utils;
 
 import android.content.Context;
 import android.util.TypedValue;
 
-import com.onightperson.hearken.viewtest.model.AnimContent;
-import com.onightperson.hearken.viewtest.model.ContactContent;
-import com.onightperson.hearken.viewtest.model.ContentBase;
-import com.onightperson.hearken.viewtest.model.ContactInfo;
+import com.onightperson.hearken.recycle.model.AnimContent;
+import com.onightperson.hearken.recycle.model.ContactContent;
+import com.onightperson.hearken.recycle.model.ContentBase;
 
 import java.util.ArrayList;
 import java.util.List;

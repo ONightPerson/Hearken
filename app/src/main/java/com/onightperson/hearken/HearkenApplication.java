@@ -7,7 +7,6 @@ import android.net.ConnectivityManager;
 
 import com.onightperson.hearken.receiver.NetworkChangeReceiver;
 import com.onightperson.hearken.util.ApplicationUtils;
-import com.raizlabs.android.dbflow.config.FlowManager;
 
 /**
  * Created by liubaozhu on 17/1/6.
@@ -24,7 +23,6 @@ public class HearkenApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        FlowManager.init(this);
         //注册网络变化接收器
         registerNetworkChangeReceiver();
 

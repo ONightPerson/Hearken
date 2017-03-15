@@ -7,4 +7,5 @@
     <dimen name="news_title_list_view_text_size">14dp</dimen>
     <dimen name="news_title_text_size">20dp</dimen>
     <dimen name="news_dividing_line_size">1dp</dimen>
+    <dimen name="card_margin">16dp</dimen>
 </resources>

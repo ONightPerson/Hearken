@@ -26,12 +26,16 @@
 
         <activity android:name=".anim.CustomViewActivity"/>
 
-        <activity android:name=".viewtest.RecyclerTestActivity"/>
+        <activity android:name=".recycle.RecyclerTestActivity"/>
 
         <activity android:name=".wave.WaveActivity"
             android:hardwareAccelerated="false"/>
 
         <activity android:name=".text.TextChangeActivity"/>
+
+        <activity android:name=".toolbar.CoordinatorActivity"/>
+
+        <activity android:name=".listviewex.ListViewExActivity"/>
 
         <service android:name=".service.AlarmIntentService"
                  android:process=":background"

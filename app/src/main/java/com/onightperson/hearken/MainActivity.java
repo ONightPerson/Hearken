@@ -6,8 +6,10 @@ import android.view.View;
 import android.widget.Button;
 
 import com.onightperson.hearken.base.BaseActivity;
+import com.onightperson.hearken.listviewex.ListViewExActivity;
 import com.onightperson.hearken.text.TextChangeActivity;
-import com.onightperson.hearken.viewtest.RecyclerTestActivity;
+import com.onightperson.hearken.recycle.RecyclerTestActivity;
+import com.onightperson.hearken.toolbar.CoordinatorActivity;
 import com.onightperson.hearken.wave.WaveActivity;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
@@ -15,6 +17,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private Button mLaunchWaveBtn;
     private Button mLaunchRecyclerViewBtn;
     private Button mLaunchTextChangeBtn;
+    private Button mLaunchCoordinatorLayoutBtn;
+    private Button mLaunchListViewBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,23 +35,29 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mLaunchRecyclerViewBtn.setOnClickListener(this);
         mLaunchTextChangeBtn = (Button) findViewById(R.id.launch_text_change_activity);
         mLaunchTextChangeBtn.setOnClickListener(this);
-
+        mLaunchCoordinatorLayoutBtn = (Button) findViewById(R.id.launch_coordinatorlayout_activity);
+        mLaunchCoordinatorLayoutBtn.setOnClickListener(this);
+        mLaunchListViewBtn = (Button) findViewById(R.id.launch_expandable_listview_activity);
+        mLaunchListViewBtn.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
+        Intent intent = null;
         if (v == mLaunchWaveBtn) {
-            Intent intent = new Intent(this, WaveActivity.class);
-            startActivity(intent);
+            intent = new Intent(this, WaveActivity.class);
         } else if (v == mLaunchRecyclerViewBtn) {
-            Intent intent = new Intent(this, RecyclerTestActivity.class);
-            startActivity(intent);
+            intent = new Intent(this, RecyclerTestActivity.class);
         } else if (v == mLaunchTextChangeBtn) {
-            Intent intent = new Intent(this, TextChangeActivity.class);
-            startActivity(intent);
+            intent = new Intent(this, TextChangeActivity.class);
+        } else if (v == mLaunchCoordinatorLayoutBtn) {
+            intent = new Intent(this, CoordinatorActivity.class);
+        } else if (v == mLaunchListViewBtn) {
+            intent = new Intent(this, ListViewExActivity.class);
         }
 
-        /*Intent intent = new Intent(this, RecyclerTestActivity.class);
-        startActivity(intent);*/
+        if (intent != null) {
+            startActivity(intent);
+        }
     }
 }

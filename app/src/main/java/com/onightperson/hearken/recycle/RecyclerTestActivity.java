@@ -1,4 +1,4 @@
-package com.onightperson.hearken.viewtest;
+package com.onightperson.hearken.recycle;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -10,9 +10,9 @@ import android.view.VelocityTracker;
 import android.view.View;
 
 import com.onightperson.hearken.R;
-import com.onightperson.hearken.viewtest.adapter.ContentAdapter;
-import com.onightperson.hearken.viewtest.model.ContentBase;
-import com.onightperson.hearken.viewtest.utils.DataUtils;
+import com.onightperson.hearken.recycle.adapter.ContentAdapter;
+import com.onightperson.hearken.recycle.model.ContentBase;
+import com.onightperson.hearken.recycle.utils.DataUtils;
 
 import java.util.List;
 

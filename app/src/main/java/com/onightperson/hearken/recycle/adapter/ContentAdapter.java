@@ -1,17 +1,14 @@
-package com.onightperson.hearken.viewtest.adapter;
+package com.onightperson.hearken.recycle.adapter;
 
-import android.os.Build;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.TextView;
 
 import com.onightperson.hearken.R;
-import com.onightperson.hearken.viewtest.model.ContactContent;
-import com.onightperson.hearken.viewtest.model.ContentBase;
+import com.onightperson.hearken.recycle.model.ContactContent;
+import com.onightperson.hearken.recycle.model.ContentBase;
 import com.onightperson.hearken.wave.BottomLayout;
 
 import java.util.List;

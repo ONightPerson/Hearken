@@ -12,5 +12,18 @@
     <string name="contact_address">地址</string>
     <string name="protected_time">持续保护%1$d天</string>
     <string name="text_change_test">我爱你%1$d天</string>
+    <string name="snackbar">展示snackbar</string>
+    <string name="do_anything">do anything</string>
+    <string name="hello">hello boy</string>
+    <string name="long_latin">long_latinfefejgejgejgegejgjegejgejg
+    long_latinfefejgejgejgegejgjegejgejg
+    long_latinfefejgejgejgegejgjegejgejg
+    long_latinfefejgejgejgegejgjegejgejg
+    long_latinfefejgejgejgegejgjegejgejg
+    vv
+    vvvlong_latinfefejgejgejgegejgjegejgejglong_latinfefejgejgejgegejgjegejgejglong_latinfefejgejgejgegejgjegejgejglong_latinfefejgejgejgegejgjegejgejglong_latinfefejgejgejgegejgjegejgejglong_latinfefejgejgejgegejgjegejgejglong_latinfefejgejgejgegejgjegejgejglong_latinfefejgejgejgegejgjegejgejglong_latinfefejgejgejgegejgjegejgejglong_latinfefejgejgejgegejgjegejgejglong_latinfefejgejgejgegejgjegejgejglong_latinfefejgejgejgegejgjegejgejglong_latinfefejgejgejgegejgjegejgejglong_latinfefejgejgejgegejgjegejgejglong_latinfefejgejgejgegejgjegejgejglong_latinfefejgejgejgegejgjegejgejglong_latinfefejgejgejgegejgjegejgejglong_latinfefejgejgejgegejgjegejgejglong_latinfefejgejgejgegejgjegejgejglong_latinfefejgejgejgegejgjegejgejglong_latinfefejgejgejgegejgjegejgejg</string>
+    <string name="hello_girls">hello girls</string>
+    <string name="hello_anims">hello anims</string>
+    <string name="collapsing_toolbar">CollapsingToolbar</string>
 
 </resources>

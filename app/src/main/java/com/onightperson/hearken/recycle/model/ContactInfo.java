@@ -1,10 +1,10 @@
-package com.onightperson.hearken.viewtest.model;
+package com.onightperson.hearken.recycle.model;
 
 /**
  * Created by liubaozhu on 17/2/23.
  */
 
-public class ContactContent extends ContentBase {
+public class ContactInfo {
     public String title;
     public String name;
     public String surName;
