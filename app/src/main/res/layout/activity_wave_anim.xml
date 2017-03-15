@@ -22,4 +22,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="启动字体设置界面"/>
+
+    <Button
+        android:id="@+id/launch_coordinatorlayout_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="启动CoordinatorLayout界面"/>
+
+    <Button
+        android:id="@+id/launch_expandable_listview_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="启动ExpandableListView界面"/>
 </LinearLayout>

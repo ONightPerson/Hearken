@@ -1,18 +1,15 @@
 package com.onightperson.hearken.text;
 
 import android.app.Activity;
-import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.AbsoluteSizeSpan;
-import android.text.style.TextAppearanceSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.onightperson.hearken.R;
-import com.onightperson.hearken.viewtest.utils.DataUtils;
 
 
 /**
