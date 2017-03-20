@@ -37,6 +37,12 @@
 
         <activity android:name=".listviewex.ListViewExActivity"/>
 
+        <activity android:name=".viewdispatchevent.DispatchEventActivity"/>
+
+        <activity android:name=".manager.ManagerTestActivity"/>
+
+        <activity android:name=".anim.viewanim.LearnViewAnimActivity"/>
+
         <service android:name=".service.AlarmIntentService"
                  android:process=":background"
                  android:exported="false">

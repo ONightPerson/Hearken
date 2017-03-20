@@ -5,11 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.onightperson.hearken.anim.viewanim.LearnViewAnimActivity;
 import com.onightperson.hearken.base.BaseActivity;
 import com.onightperson.hearken.listviewex.ListViewExActivity;
+import com.onightperson.hearken.manager.ManagerTestActivity;
 import com.onightperson.hearken.text.TextChangeActivity;
 import com.onightperson.hearken.recycle.RecyclerTestActivity;
 import com.onightperson.hearken.toolbar.CoordinatorActivity;
+import com.onightperson.hearken.viewdispatchevent.DispatchEventActivity;
 import com.onightperson.hearken.wave.WaveActivity;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
@@ -19,6 +22,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private Button mLaunchTextChangeBtn;
     private Button mLaunchCoordinatorLayoutBtn;
     private Button mLaunchListViewBtn;
+    private Button mLaunchDispatchEventBtn;
+    private Button mLaunchManagerTestBtn;
+    private Button mLaunchAnimBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +45,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mLaunchCoordinatorLayoutBtn.setOnClickListener(this);
         mLaunchListViewBtn = (Button) findViewById(R.id.launch_expandable_listview_activity);
         mLaunchListViewBtn.setOnClickListener(this);
+        mLaunchDispatchEventBtn = (Button) findViewById(R.id.launch_dispatchevent_activity);
+        mLaunchDispatchEventBtn.setOnClickListener(this);
+        mLaunchManagerTestBtn = (Button) findViewById(R.id.launch_managertest_activity);
+        mLaunchManagerTestBtn.setOnClickListener(this);
+        mLaunchAnimBtn = (Button) findViewById(R.id.launch_anim_activity);
+        mLaunchAnimBtn.setOnClickListener(this);
     }
 
     @Override
@@ -54,6 +66,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             intent = new Intent(this, CoordinatorActivity.class);
         } else if (v == mLaunchListViewBtn) {
             intent = new Intent(this, ListViewExActivity.class);
+        } else if (v == mLaunchDispatchEventBtn) {
+            intent = new Intent(this, DispatchEventActivity.class);
+        } else if (v == mLaunchManagerTestBtn) {
+            intent = new Intent(this, ManagerTestActivity.class);
+        } else if (v == mLaunchAnimBtn) {
+            intent = new Intent(this, LearnViewAnimActivity.class);
         }
 
         if (intent != null) {

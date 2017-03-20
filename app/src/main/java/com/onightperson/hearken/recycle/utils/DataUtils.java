@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.TypedValue;
 
 import com.onightperson.hearken.recycle.model.AnimContent;
+import com.onightperson.hearken.recycle.model.ButtonRemoveItemInfo;
 import com.onightperson.hearken.recycle.model.ContactContent;
 import com.onightperson.hearken.recycle.model.ContentBase;
 
@@ -17,6 +18,10 @@ import java.util.List;
 public class DataUtils {
     public static List<ContentBase> getContactInfoList() {
         List<ContentBase> contactInfoList = new ArrayList<>();
+
+        ButtonRemoveItemInfo btnInfo = new ButtonRemoveItemInfo();
+        btnInfo.contentType = 2;
+        contactInfoList.add(btnInfo);
 
         ContactContent contactInfo = new ContactContent();
         contactInfo.name = "Suson";
@@ -34,9 +39,6 @@ public class DataUtils {
         contactInfo.email = "jacknngf@gmail.com";
         contactInfo.addr = "Washingtn";
         contactInfo.contentType = 0;
-        contactInfoList.add(contactInfo);
-
-        contactInfo = new ContactContent();
         contactInfoList.add(contactInfo);
 
         contactInfo = new ContactContent();
