@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/start_translaction_anim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/start_translation_anim"/>
+
+    <Button
+        android:id="@+id/start_scale_anim"
+        android:layout_below="@id/start_translaction_anim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/start_scale_anim"/>
+
+    <Button
+        android:id="@+id/start_rotate_anim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/start_scale_anim"
+        android:text="@string/start_rotate_anim"/>
+
+    <Button
+        android:id="@+id/start_alpha_anim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/start_rotate_anim"
+        android:text="@string/start_alpha_anim"/>
+
+    <Button
+        android:id="@+id/start_anim_set"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/start_alpha_anim"
+        android:text="@string/start_anim_set"/>
+
+    <Button
+        android:id="@+id/display_view_anim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/display_view_anim"/>
+
+</RelativeLayout>

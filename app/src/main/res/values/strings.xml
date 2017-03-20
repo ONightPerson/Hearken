@@ -25,5 +25,11 @@
     <string name="hello_girls">hello girls</string>
     <string name="hello_anims">hello anims</string>
     <string name="collapsing_toolbar">CollapsingToolbar</string>
+    <string name="start_translation_anim">启动平移动画</string>
+    <string name="start_scale_anim">启动缩放动画</string>
+    <string name="start_rotate_anim">启动旋转动画</string>
+    <string name="start_alpha_anim">启动透明度动画</string>
+    <string name="start_anim_set">启动动画集合</string>
+    <string name="display_view_anim">View动画</string>
 
 </resources>

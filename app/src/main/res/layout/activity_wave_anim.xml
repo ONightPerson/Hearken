@@ -34,4 +34,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="启动ExpandableListView界面"/>
+
+    <Button
+        android:id="@+id/launch_dispatchevent_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="启动DispatchEvent界面"/>
+
+    <Button
+        android:id="@+id/launch_managertest_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="启动ManagerTest界面"/>
+
+    <Button
+        android:id="@+id/launch_anim_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="启动动画界面"/>
 </LinearLayout>

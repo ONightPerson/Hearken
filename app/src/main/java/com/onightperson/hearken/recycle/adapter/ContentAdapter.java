@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.onightperson.hearken.R;
@@ -36,6 +37,9 @@ public class ContentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             case 1:
                 itemView = inflater.inflate(R.layout.activity_bottom, parent, false);
                 return new AnimViewHolder(itemView);
+            case 2:
+                itemView = inflater.inflate(R.layout.botton_layout, parent, false);
+                return new ButtonHolder(itemView);
             default:
                 itemView = inflater.inflate(R.layout.cardview_layout, parent, false);
                 return new ContactViewHolder(itemView);
@@ -88,11 +92,29 @@ public class ContentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         }
     }
 
-    public static class AnimViewHolder extends RecyclerView.ViewHolder {
+    public class AnimViewHolder extends RecyclerView.ViewHolder {
         public BottomLayout bottomLayout;
         public AnimViewHolder(View itemView) {
             super(itemView);
             bottomLayout = (BottomLayout) itemView.findViewById(R.id.bottom_layout);
+        }
+    }
+
+    public class ButtonHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        private Button mRemoveItemBtn;
+
+        public ButtonHolder(View itemView) {
+            super(itemView);
+            mRemoveItemBtn = (Button) itemView.findViewById(R.id.remove_item_btn);
+            mRemoveItemBtn.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            if (v == mRemoveItemBtn) {
+                mContentList.remove(0);
+                notifyItemChanged(0);
+            }
         }
     }
 }
