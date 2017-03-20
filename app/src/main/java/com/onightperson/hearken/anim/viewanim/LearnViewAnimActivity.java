@@ -82,8 +82,6 @@ public class LearnViewAnimActivity extends Activity implements View.OnClickListe
             animSet.setDuration(1000);
             animSet.setFillAfter(true);
 
-
-
             ScaleAnimation scaleAnimation = new ScaleAnimation(1, 0.8f, 1, 1, 0, 0);
             scaleAnimation.setInterpolator(new AccelerateInterpolator());
             AlphaAnimation alphaAnimation = new AlphaAnimation(1, 0.5f);
