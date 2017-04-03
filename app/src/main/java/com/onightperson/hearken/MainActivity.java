@@ -9,6 +9,7 @@ import com.onightperson.hearken.anim.viewanim.LearnViewAnimActivity;
 import com.onightperson.hearken.base.BaseActivity;
 import com.onightperson.hearken.listviewex.ListViewExActivity;
 import com.onightperson.hearken.manager.ManagerTestActivity;
+import com.onightperson.hearken.news.ui.SupportFragmentActivity;
 import com.onightperson.hearken.text.TextChangeActivity;
 import com.onightperson.hearken.recycle.RecyclerTestActivity;
 import com.onightperson.hearken.toolbar.CoordinatorActivity;
@@ -25,6 +26,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private Button mLaunchDispatchEventBtn;
     private Button mLaunchManagerTestBtn;
     private Button mLaunchAnimBtn;
+    private Button mLaunchFragmentActivityBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mLaunchManagerTestBtn.setOnClickListener(this);
         mLaunchAnimBtn = (Button) findViewById(R.id.launch_anim_activity);
         mLaunchAnimBtn.setOnClickListener(this);
+        mLaunchFragmentActivityBtn = (Button) findViewById(R.id.launch_fragment_activity);
+        mLaunchFragmentActivityBtn.setOnClickListener(this);
     }
 
     @Override
@@ -72,6 +76,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             intent = new Intent(this, ManagerTestActivity.class);
         } else if (v == mLaunchAnimBtn) {
             intent = new Intent(this, LearnViewAnimActivity.class);
+        } else if (v == mLaunchFragmentActivityBtn) {
+            intent = new Intent(this, SupportFragmentActivity.class);
         }
 
         if (intent != null) {

@@ -3,30 +3,8 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/news_title_text_view"
+    <Button
+        android:id="@+id/launch_any_activity"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/news_title_text_size"
-        android:textColor="@color/dark"
-        android:layout_gravity="center_horizontal"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/news_dividing_line_size"
-        android:background="@color/common_dark_grey"/>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/news_content_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"/>
-    </ScrollView>
+        android:layout_height="wrap_content"/>
 </LinearLayout>

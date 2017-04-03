@@ -19,7 +19,7 @@
 
         <fragment
             android:id="@+id/right_fragment"
-            android:name="com.onightperson.hearken.news.ui.NewsContentFragment"
+            android:name="com.onightperson.hearken.news.ui.SupportFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
