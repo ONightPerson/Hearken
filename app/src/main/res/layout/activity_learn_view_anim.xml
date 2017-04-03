@@ -38,6 +38,20 @@
         android:text="@string/start_anim_set"/>
 
     <Button
+        android:id="@+id/back_use_view_anim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/start_anim_set"
+        android:text="@string/use_view_anim"/>
+
+    <Button
+        android:id="@+id/back_use_property_anim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/back_use_view_anim"
+        android:text="@string/use_property_anim"/>
+
+    <Button
         android:id="@+id/display_view_anim"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

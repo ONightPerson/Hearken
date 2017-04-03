@@ -20,9 +20,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".news.ui.NewsActivity"/>
-
-        <activity android:name=".news.ui.NewsContentActivity"/>
+        <activity android:name=".news.ui.SupportFragmentActivity"/>
 
         <activity android:name=".anim.CustomViewActivity"/>
 
@@ -42,6 +40,8 @@
         <activity android:name=".manager.ManagerTestActivity"/>
 
         <activity android:name=".anim.viewanim.LearnViewAnimActivity"/>
+
+        <activity android:name=".news.ui.EmptyFragmentActivity"/>
 
         <service android:name=".service.AlarmIntentService"
                  android:process=":background"

@@ -31,5 +31,7 @@
     <string name="start_alpha_anim">启动透明度动画</string>
     <string name="start_anim_set">启动动画集合</string>
     <string name="display_view_anim">View动画</string>
+    <string name="use_view_anim">back后使用View动画</string>
+    <string name="use_property_anim">back后使用属性动画</string>
 
 </resources>
