@@ -1,61 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-
-    <Button
-        android:id="@+id/launch_wave_activity"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="启动波形界面"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/launch_recyclerview_activity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="启动RecyclerView界面"/>
 
-    <Button
-        android:id="@+id/launch_text_change_activity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="启动字体设置界面"/>
+        <Button
+            android:id="@+id/launch_wave_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="启动波形界面"/>
 
-    <Button
-        android:id="@+id/launch_coordinatorlayout_activity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="启动CoordinatorLayout界面"/>
+        <Button
+            android:id="@+id/launch_recyclerview_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="启动RecyclerView界面"/>
 
-    <Button
-        android:id="@+id/launch_expandable_listview_activity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="启动ExpandableListView界面"/>
+        <Button
+            android:id="@+id/launch_text_change_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="启动字体设置界面"/>
 
-    <Button
-        android:id="@+id/launch_dispatchevent_activity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="启动DispatchEvent界面"/>
+        <Button
+            android:id="@+id/launch_coordinatorlayout_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="启动CoordinatorLayout界面"/>
 
-    <Button
-        android:id="@+id/launch_managertest_activity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="启动ManagerTest界面"/>
+        <Button
+            android:id="@+id/launch_expandable_listview_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="启动ExpandableListView界面"/>
 
-    <Button
-        android:id="@+id/launch_anim_activity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="启动动画界面"/>
+        <Button
+            android:id="@+id/launch_dispatchevent_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="启动DispatchEvent界面"/>
 
-    <Button
-        android:id="@+id/launch_fragment_activity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="启动Fragment界面"/>
-</LinearLayout>
+        <Button
+            android:id="@+id/launch_managertest_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="启动ManagerTest界面"/>
+
+        <Button
+            android:id="@+id/launch_anim_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="启动动画界面"/>
+
+        <Button
+            android:id="@+id/launch_fragment_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="启动Fragment界面"/>
+
+        <Button
+            android:id="@+id/launch_camera"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="启动照相机"/>
+
+        <Button
+            android:id="@+id/launch_drawable_test_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="启动DrawableTest界面"/>
+
+        <Button
+            android:id="@+id/launch_progress_test_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="启动Progress界面"/>
+
+        <Button
+            android:id="@+id/launch_notification_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="启动通知界面"/>
+    </LinearLayout>
+</ScrollView>

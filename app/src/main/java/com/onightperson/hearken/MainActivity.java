@@ -7,9 +7,13 @@ import android.widget.Button;
 
 import com.onightperson.hearken.anim.viewanim.LearnViewAnimActivity;
 import com.onightperson.hearken.base.BaseActivity;
+import com.onightperson.hearken.camera.CameraActivity;
+import com.onightperson.hearken.drawable.DrawableTestActivity;
 import com.onightperson.hearken.listviewex.ListViewExActivity;
 import com.onightperson.hearken.manager.ManagerTestActivity;
 import com.onightperson.hearken.news.ui.SupportFragmentActivity;
+import com.onightperson.hearken.notify.NotificationActivity;
+import com.onightperson.hearken.progress.ProgressActivity;
 import com.onightperson.hearken.text.TextChangeActivity;
 import com.onightperson.hearken.recycle.RecyclerTestActivity;
 import com.onightperson.hearken.toolbar.CoordinatorActivity;
@@ -28,6 +32,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private Button mLaunchManagerTestBtn;
     private Button mLaunchAnimBtn;
     private Button mLaunchFragmentActivityBtn;
+    private Button mLaunchCameraBtn;
+    private Button mLaunchDrawableTestBtn;
+    private Button mProgressTestBtn;
+    private Button mNotifyBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +64,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mLaunchAnimBtn.setOnClickListener(this);
         mLaunchFragmentActivityBtn = (Button) findViewById(R.id.launch_fragment_activity);
         mLaunchFragmentActivityBtn.setOnClickListener(this);
+        mLaunchCameraBtn = (Button) findViewById(R.id.launch_camera);
+        mLaunchCameraBtn.setOnClickListener(this);
+        mLaunchDrawableTestBtn = (Button) findViewById(R.id.launch_drawable_test_activity);
+        mLaunchDrawableTestBtn.setOnClickListener(this);
+        mProgressTestBtn = (Button) findViewById(R.id.launch_progress_test_activity);
+        mProgressTestBtn.setOnClickListener(this);
+        mNotifyBtn = (Button) findViewById(R.id.launch_notification_activity);
+        mNotifyBtn.setOnClickListener(this);
     }
 
     @Override
@@ -78,8 +94,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         } else if (v == mLaunchAnimBtn) {
             intent = new Intent(this, LearnViewAnimActivity.class);
         } else if (v == mLaunchFragmentActivityBtn) {
-//            intent = new Intent(this, SupportFragmentActivity.class);
-            UriTest.printType();
+            intent = new Intent(this, SupportFragmentActivity.class);
+//            UriTest.printType();
+        } else if (v == mLaunchCameraBtn) {
+            intent = new Intent(this, CameraActivity.class);
+        } else if (v == mLaunchDrawableTestBtn) {
+            intent = new Intent(this, DrawableTestActivity.class);
+        } else if (v == mProgressTestBtn) {
+            intent = new Intent(this, ProgressActivity.class);
+        } else if (v == mNotifyBtn) {
+            intent = new Intent(this, NotificationActivity.class);
         }
 
         if (intent != null) {

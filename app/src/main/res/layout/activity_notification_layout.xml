@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/send_normal_notification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发送普通通知"/>
+
+    <Button
+        android:id="@+id/send_custom_notification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发送自定义通知"/>
+
+    <Button
+        android:id="@+id/send_normal_notification_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发送另一条普通通知"/>
+</LinearLayout>
