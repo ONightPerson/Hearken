@@ -13,6 +13,7 @@ import com.onightperson.hearken.news.ui.SupportFragmentActivity;
 import com.onightperson.hearken.text.TextChangeActivity;
 import com.onightperson.hearken.recycle.RecyclerTestActivity;
 import com.onightperson.hearken.toolbar.CoordinatorActivity;
+import com.onightperson.hearken.uri.UriTest;
 import com.onightperson.hearken.viewdispatchevent.DispatchEventActivity;
 import com.onightperson.hearken.wave.WaveActivity;
 
@@ -77,7 +78,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         } else if (v == mLaunchAnimBtn) {
             intent = new Intent(this, LearnViewAnimActivity.class);
         } else if (v == mLaunchFragmentActivityBtn) {
-            intent = new Intent(this, SupportFragmentActivity.class);
+//            intent = new Intent(this, SupportFragmentActivity.class);
+            UriTest.printType();
         }
 
         if (intent != null) {

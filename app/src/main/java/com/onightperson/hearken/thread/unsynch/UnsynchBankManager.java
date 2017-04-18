@@ -1,10 +1,14 @@
 package com.onightperson.hearken.thread.unsynch;
 
+import java.util.List;
+
 /**
  * Created by liubaozhu on 17/4/3.
  */
 
 public class UnsynchBankManager {
+    private static final String TAG = "UnsynchBankManager";
+
     public static final int ACCOUNTS = 100;
     public static final double INITIAL_BALANCE = 1000;
     private static UnsynchBank mBank;
@@ -28,10 +32,17 @@ public class UnsynchBankManager {
     }
 
     public static void doTask() {
-        for (int i = 0; i < ACCOUNTS; i++) {
+        /*for (int i = 0; i < ACCOUNTS; i++) {
             Runnable task = new TradeTask(mBank, i, INITIAL_BALANCE);
             Thread t = new Thread(task);
             t.start();
-        }
+        }*/
+
+        Object origin = null;
+
+        String testStr = (String) origin;
+        List<String> testList = (List<String>) origin;
+
+        System.out.println("testStr: " + testStr + ", testList: " + testList);
     }
 }
