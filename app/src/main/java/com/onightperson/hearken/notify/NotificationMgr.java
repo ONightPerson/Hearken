@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
+import android.widget.RemoteViews;
 
 import com.onightperson.hearken.Constants;
 import com.onightperson.hearken.MainActivity;
@@ -48,5 +49,28 @@ public class NotificationMgr {
         Notification notification = builder.build();
         mNotifyManager.notify(Constants.ID_ALARM_NOTIFICATION, notification);
 
+    }
+
+    public void sendNormalNotification() {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext);
+        builder.setSmallIcon(R.drawable.ic_launcher);
+        builder.setContentTitle(mContext.getString(R.string.notification_normal_title));
+        builder.setContentText(mContext.getString(R.string.notification_normal_text));
+        builder.setContentIntent(PendingIntent.getActivity(mContext, 0, new Intent(mContext,
+                MainActivity.class), PendingIntent.FLAG_CANCEL_CURRENT));
+        Notification notification = builder.build();
+        mNotifyManager.notify(Constants.ID_NORMAL_NOTIFICATION, notification);
+
+    }
+
+    public void sendCustomNotification() {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext);
+        RemoteViews contentViews = new RemoteViews(mContext.getPackageName(), R.layout.notification_item_layout);
+        builder.setContent(contentViews);
+        builder.setSmallIcon(R.drawable.ic_launcher);
+        builder.setContentIntent(PendingIntent.getActivity(mContext, 0, new Intent(mContext,
+                MainActivity.class), PendingIntent.FLAG_CANCEL_CURRENT));
+        Notification notification = builder.build();
+        mNotifyManager.notify(Constants.ID_CUSTOM_NOTIFICATION, notification);
     }
 }

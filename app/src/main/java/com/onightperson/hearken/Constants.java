@@ -22,4 +22,6 @@ public class Constants {
     public static final String ACTION_ALARM_NOTIFICATION_FOR_TEST = "action.alarm.notification.for.test";
     //notification id
     public static final int ID_ALARM_NOTIFICATION = 1;
+    public static final int ID_CUSTOM_NOTIFICATION = 2;
+    public static final int ID_NORMAL_NOTIFICATION = 3;
 }

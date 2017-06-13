@@ -5,6 +5,8 @@
     <string name="right_fragment2">This is a right2 fragment</string>
     <string name="notification_alarm_title">This is a alarm notification</string>
     <string name="notification_alarm_text">try to click</string>
+    <string name="notification_normal_title">充电完成</string>
+    <string name="notification_normal_text">充电已完成，请及时移除电源</string>
     <string name="contact_det">联系人详情</string>
     <string name="contact_name">名字</string>
     <string name="contact_sur_name">姓</string>
@@ -25,13 +27,13 @@
     <string name="hello_girls">hello girls</string>
     <string name="hello_anims">hello anims</string>
     <string name="collapsing_toolbar">CollapsingToolbar</string>
-    <string name="start_translation_anim">启动平移动画</string>
-    <string name="start_scale_anim">启动缩放动画</string>
-    <string name="start_rotate_anim">启动旋转动画</string>
-    <string name="start_alpha_anim">启动透明度动画</string>
-    <string name="start_anim_set">启动动画集合</string>
-    <string name="display_view_anim">View动画</string>
-    <string name="use_view_anim">back后使用View动画</string>
-    <string name="use_property_anim">back后使用属性动画</string>
+    <string name="start_property_anim">启动动画</string>
+    <string name="stop_property_anim">结束动画</string>
+    <string name="display_view_anim">展示动画</string>
+    <string name="take_picture">拍照</string>
+    <string name="turn_off_flash_light">关闭闪光灯</string>
+    <string name="turn_on_flash_light">打开闪光灯</string>
+    <string name="test_color_text">%1$d个宝宝已出生，&lt;font color = \"#fb6f70\"&gt;快来抱抱&lt;/font&gt;</string>
+
 
 </resources>
