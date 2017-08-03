@@ -5,19 +5,20 @@ import android.content.Intent;
 import android.util.Log;
 
 import com.onightperson.hearken.Constants;
+import com.onightperson.hearken.notify.NotificationConstants;
 import com.onightperson.hearken.notify.NotificationMgr;
 
 /**
  * Created by liubaozhu on 17/1/5.
  */
 
-public class AlarmIntentService extends IntentService {
+public class MyIntentService extends IntentService {
     private static final String TAG = "AlarmIntentService";
 
     /**
      * Creates an IntentService.  Invoked by your subclass's constructor.
      */
-    public AlarmIntentService() {
+    public MyIntentService() {
         super("AlarmIntentService");
     }
 

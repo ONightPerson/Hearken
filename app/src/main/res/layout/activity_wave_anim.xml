@@ -86,5 +86,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="启动通知界面"/>
+
+        <Button
+            android:id="@+id/launch_launchmode_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="启动 启动模式测试 界面"/>
+
+        <Button
+            android:id="@+id/date_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="时间"/>
+
+        <Button
+            android:id="@+id/ipc_learn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="IPC机制"/>
     </LinearLayout>
 </ScrollView>

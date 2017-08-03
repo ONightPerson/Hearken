@@ -18,10 +18,16 @@ public class Constants {
     public static final long HALF_HOUR_MS = MINUTE_MS * 30;
     public static final long FOUR_HOUR_MS = MINUTE_MS * 60 * 4;
 
+    public static final String ACTION_NOTIFY_TO_INTENT_SERVICE = "action.alarm.notification.for.test";
+
     //action
     public static final String ACTION_ALARM_NOTIFICATION_FOR_TEST = "action.alarm.notification.for.test";
     //notification id
     public static final int ID_ALARM_NOTIFICATION = 1;
     public static final int ID_CUSTOM_NOTIFICATION = 2;
     public static final int ID_NORMAL_NOTIFICATION = 3;
+    public static final int ID_BIG_CONTENTVIEW_NOTIFICATION = 4;
+    public static final int ID_MUTI_BTN_NOTIFICATION = 5;
+    //key
+    public static final String KEY_LAUNCH_FROM = "launch_from";
 }

@@ -16,7 +16,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:label="MainActivity"
+            android:alwaysRetainTaskState="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -56,11 +58,89 @@
 
         <activity android:name=".notify.NotificationActivity"/>
 
-        <service android:name=".service.AlarmIntentService"
+        <activity android:name=".notify.NotifyTestActivity"/>
+
+        <!--启动模式 主界面-->
+        <activity android:name=".launchmode.LaunchModeMainActivity"
+            android:label="LaunchModeTestActivity"/>
+
+        <!--singleTask-->
+        <activity android:name=".launchmode.singletask.SingleTaskAActivity"
+                  android:label="SingleTaskAActivity"
+            android:launchMode="singleTask"
+            android:taskAffinity=":other"/>
+
+        <activity android:name=".launchmode.singletask.SingleTaskBActivity"
+            android:label="SingleTaskBActivity"/>
+        <!--end-->
+
+        <!--singleInstance-->
+        <activity android:name=".launchmode.singleinstance.AActivity"
+            android:label="AActivity"
+            android:launchMode="singleInstance"/>
+
+        <activity android:name=".launchmode.singleinstance.BActivity"
+            android:label="BActivity"/>
+        <!--end-->
+
+        <!--finishOnTaskLaunch-->
+        <activity android:name=".launchmode.flags.FinishOnTaskLaunchTestActivity"
+            android:label="FinishOnTashLaunchTestActivity"
+            android:finishOnTaskLaunch="true"/>
+        <!--end-->
+
+        <activity android:name=".launchmode.flags.FlagNewDocBActivity"
+            android:label="FlagNewDocBActivity"/>
+
+        <activity android:name=".launchmode.flags.FlagNewDocAActivity"
+            android:label="FlagNewDocAActivity"/>
+
+        <!--测试 FLAG_ACTIVITY_CLEAR_TOP-->
+        <activity android:name=".launchmode.flags.cleartop.AActivity"
+            android:label="AActivity"/>
+
+        <activity android:name=".launchmode.flags.cleartop.BActivity"
+            android:label="BActivity"/>
+
+        <activity android:name=".launchmode.flags.cleartop.CActivity"
+            android:label="CActivity"/>
+        <!--end-->
+
+        <!--测试 FLAG_ACTIVITY_NEW_TASK-->
+        <activity android:name=".launchmode.flags.newtask.AActivity"
+            android:label="AActivity"
+            android:taskAffinity=":other"/>
+        <!--end-->
+
+        <!--测试 FLAG_ACTVITY_SINGLE_TOP-->
+
+        <activity android:name=".launchmode.flags.singletop.AActivity"
+            android:label="AActivity"
+            android:taskAffinity=":other"/>
+
+        <activity android:name=".datetime.DateTimeActivity"/>
+
+        <activity android:name=".acrossprocess.IPCAActivity"
+            android:process=":remote1"/>
+
+        <activity android:name=".acrossprocess.IPCBActivity"
+            />
+        <!--end-->
+
+        <service android:name=".service.MyIntentService"
                  android:process=":background"
-                 android:exported="false">
+                 android:exported="true">
             <intent-filter>
                 <action android:name="action.alarm.notification.for.test"/>
+            </intent-filter>
+        </service>
+
+        <service android:name=".notify.MyNotificationListenerService"
+            android:label="通知监听服务"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService"/>
             </intent-filter>
         </service>
     </application>

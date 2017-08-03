@@ -21,4 +21,42 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="发送另一条普通通知"/>
+
+    <Button
+        android:id="@+id/send_big_notification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发送bigContentView通知"/>
+
+    <Button
+        android:id="@+id/send_muti_btn_notification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发送多个Button的自定义通知"/>
+
+    <Button
+        android:id="@+id/send_notifications"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发送通知（点一次发一次）"/>
+
+    <Button
+        android:id="@+id/start_listener_service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="启动NotificationListenerService"/>
+
+    <Button
+        android:id="@+id/start_intent_service_notification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发送启动IntentService的通知"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/start_read_perm_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="启动系统读取通知权限页面"
+        android:textAllCaps="false"/>
 </LinearLayout>

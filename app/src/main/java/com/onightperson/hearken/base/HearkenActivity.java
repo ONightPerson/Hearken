@@ -1,7 +1,7 @@
 package com.onightperson.hearken.base;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
@@ -13,10 +13,10 @@ import java.util.WeakHashMap;
  * Created by liubaozhu on 17/1/28.
  */
 
-public class BaseActivity extends Activity {
-    private static final String TAG = "BaseActivity";
+public class HearkenActivity extends AppCompatActivity {
+    private static final String TAG = "HearkenActivity";
 
-    private static WeakHashMap<String, WeakReference<BaseActivity>> mInstanceList
+    private static WeakHashMap<String, WeakReference<HearkenActivity>> mInstanceList
             = new WeakHashMap<>();
     private String mActivityName = null;
 
@@ -25,10 +25,13 @@ public class BaseActivity extends Activity {
         super.onCreate(savedInstanceState);
         //获取当前Activity的名字
 
-        BaseActivity instance = getInstance();
+        HearkenActivity instance = getInstance();
         if (instance != null) {
             this.finish();
         }
+
+        Log.i(TAG, "onCreate --> current activity name: " + getClass().getSimpleName()
+                + ", it's task id: " + getTaskId());
 
         //创建一个实例的弱引用
         synchronized (mInstanceList) {
@@ -40,7 +43,7 @@ public class BaseActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        BaseActivity instance = getInstance();
+        HearkenActivity instance = getInstance();
         if (instance == this) {
             synchronized (mInstanceList) {
                 mInstanceList.remove(mActivityName);
@@ -48,13 +51,13 @@ public class BaseActivity extends Activity {
         }
     }
 
-    private BaseActivity getInstance() {
+    private HearkenActivity getInstance() {
         //get the name of current activity
         if (mActivityName == null) {
-            mActivityName = this.getClass().getName();
+            mActivityName = this.getClass().getSimpleName();
         }
 
-        WeakReference<BaseActivity> weakInstance = mInstanceList.get(mActivityName);
+        WeakReference<HearkenActivity> weakInstance = mInstanceList.get(mActivityName);
         if (weakInstance != null) {
             return weakInstance.get();
         }
@@ -63,11 +66,11 @@ public class BaseActivity extends Activity {
     }
 
     public static void finishAll() {
-        Collection<WeakReference<BaseActivity>> weakInstanceList = mInstanceList.values();
+        Collection<WeakReference<HearkenActivity>> weakInstanceList = mInstanceList.values();
         Log.d(TAG, "finishAll--mInstanceList's size: " + mInstanceList.size());
-        for (WeakReference<BaseActivity> weakInstance : weakInstanceList) {
+        for (WeakReference<HearkenActivity> weakInstance : weakInstanceList) {
             if (weakInstance != null) {
-                BaseActivity instance = weakInstance.get();
+                HearkenActivity instance = weakInstance.get();
                 instance.finish();
             }
         }

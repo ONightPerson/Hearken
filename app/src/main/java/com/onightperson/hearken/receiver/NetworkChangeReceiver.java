@@ -1,22 +1,14 @@
 package com.onightperson.hearken.receiver;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.util.Log;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import com.onightperson.hearken.MainActivity;
-import com.onightperson.hearken.base.BaseActivity;
-import com.onightperson.hearken.base.BaseFragmentActivity;
 import com.onightperson.hearken.util.ActivityUtils;
-import com.onightperson.hearken.util.NetworkUtils;
 
 /**
  * Created by liubaozhu on 17/1/12.

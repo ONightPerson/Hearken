@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
+import android.os.Process;
+import android.util.Log;
 
 import com.onightperson.hearken.receiver.NetworkChangeReceiver;
 import com.onightperson.hearken.util.ApplicationUtils;
@@ -13,11 +15,14 @@ import com.onightperson.hearken.util.ApplicationUtils;
  */
 
 public class HearkenApplication extends Application {
+    private static final String TAG = "HearkenApplication";
 
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         ApplicationUtils.initAppContext(this);
+
+        Log.d(TAG, "attachBaseContext: pid: " + Process.myPid());
     }
 
     @Override
