@@ -1,6 +1,6 @@
 package com.onightperson.hearken.util;
 
-import com.onightperson.hearken.base.BaseActivity;
+import com.onightperson.hearken.base.HearkenActivity;
 import com.onightperson.hearken.base.BaseFragmentActivity;
 
 /**
@@ -10,7 +10,7 @@ import com.onightperson.hearken.base.BaseFragmentActivity;
 public class ActivityUtils {
 
     public static void finishAll() {
-        BaseActivity.finishAll();
+        HearkenActivity.finishAll();
         BaseFragmentActivity.finishAll();
     }
 }

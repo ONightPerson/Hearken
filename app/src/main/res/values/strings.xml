@@ -3,7 +3,7 @@
     <string name="left_fragment">This is a left fragment</string>
     <string name="right_fragment">This is a right fragment</string>
     <string name="right_fragment2">This is a right2 fragment</string>
-    <string name="notification_alarm_title">This is a alarm notification</string>
+    <string name="notification_alarm_title">This is the %1$dth alarm notification</string>
     <string name="notification_alarm_text">try to click</string>
     <string name="notification_normal_title">充电完成</string>
     <string name="notification_normal_text">充电已完成，请及时移除电源</string>
@@ -34,6 +34,9 @@
     <string name="turn_off_flash_light">关闭闪光灯</string>
     <string name="turn_on_flash_light">打开闪光灯</string>
     <string name="test_color_text">%1$d个宝宝已出生，&lt;font color = \"#fb6f70\"&gt;快来抱抱&lt;/font&gt;</string>
+    <string name="launch_singletop_a_activity">launch singleTopA</string>
+    <string name="launch_singletask_a_activity">测试 singleTask -> 启动 A</string>
+    <string name="launch_singleInstance_a_activity">测试 singleInstance -> 启动 A</string>
 
 
 </resources>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/launch_singletop_a_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="@string/launch_singletop_a_activity"/>
+
+    <Button
+        android:id="@+id/launch_singletask_a_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="@string/launch_singletask_a_activity"/>
+
+
+    <Button
+        android:id="@+id/launch_singleinstance_a_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="@string/launch_singleInstance_a_activity"/>
+
+    <Button
+        android:id="@+id/finish_on_task_launch_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="测试 finishOnTaskLaunch 属性"/>
+
+    <Button
+        android:id="@+id/flag_actvity_clear_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="测试 FLAG_ACTIVITY_CLEAR_TOP 标志位"/>
+
+    <Button
+        android:id="@+id/flag_actvity_new_task"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="测试 FLAG_ACTIVITY_NEW_TASK 标志位"/>
+
+    <Button
+        android:id="@+id/flag_actvity_single_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="测试 FLAG_ACTIVITY_SINGLE_TOP 标志位"/>
+
+</LinearLayout>

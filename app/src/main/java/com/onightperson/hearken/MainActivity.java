@@ -5,10 +5,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.onightperson.hearken.acrossprocess.IPCAActivity;
 import com.onightperson.hearken.anim.viewanim.LearnViewAnimActivity;
-import com.onightperson.hearken.base.BaseActivity;
+import com.onightperson.hearken.base.HearkenActivity;
 import com.onightperson.hearken.camera.CameraActivity;
+import com.onightperson.hearken.datetime.DateTimeActivity;
 import com.onightperson.hearken.drawable.DrawableTestActivity;
+import com.onightperson.hearken.launchmode.LaunchModeMainActivity;
 import com.onightperson.hearken.listviewex.ListViewExActivity;
 import com.onightperson.hearken.manager.ManagerTestActivity;
 import com.onightperson.hearken.news.ui.SupportFragmentActivity;
@@ -17,11 +20,10 @@ import com.onightperson.hearken.progress.ProgressActivity;
 import com.onightperson.hearken.text.TextChangeActivity;
 import com.onightperson.hearken.recycle.RecyclerTestActivity;
 import com.onightperson.hearken.toolbar.CoordinatorActivity;
-import com.onightperson.hearken.uri.UriTest;
 import com.onightperson.hearken.viewdispatchevent.DispatchEventActivity;
 import com.onightperson.hearken.wave.WaveActivity;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener {
+public class MainActivity extends HearkenActivity implements View.OnClickListener {
 
     private Button mLaunchWaveBtn;
     private Button mLaunchRecyclerViewBtn;
@@ -36,6 +38,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private Button mLaunchDrawableTestBtn;
     private Button mProgressTestBtn;
     private Button mNotifyBtn;
+    private Button mLaunchModeActivityBtn;
+    private Button mDateTimeBtn;
+    private Button mIPCBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +77,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mProgressTestBtn.setOnClickListener(this);
         mNotifyBtn = (Button) findViewById(R.id.launch_notification_activity);
         mNotifyBtn.setOnClickListener(this);
+        mLaunchModeActivityBtn = (Button) findViewById(R.id.launch_launchmode_activity);
+        mLaunchModeActivityBtn.setOnClickListener(this);
+        mDateTimeBtn = (Button) findViewById(R.id.date_time);
+        mDateTimeBtn.setOnClickListener(this);
+        mIPCBtn = (Button) findViewById(R.id.ipc_learn);
+        mIPCBtn.setOnClickListener(this);
     }
 
     @Override
@@ -104,6 +115,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             intent = new Intent(this, ProgressActivity.class);
         } else if (v == mNotifyBtn) {
             intent = new Intent(this, NotificationActivity.class);
+        } else if (v == mLaunchModeActivityBtn) {
+            intent = new Intent(this, LaunchModeMainActivity.class);
+        } else if (v == mDateTimeBtn) {
+            intent = new Intent(this, DateTimeActivity.class);
+        } else if (v == mIPCBtn) {
+            intent = new Intent(this, IPCAActivity.class);
         }
 
         if (intent != null) {
