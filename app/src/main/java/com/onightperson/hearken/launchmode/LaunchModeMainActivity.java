@@ -8,16 +8,16 @@ import android.widget.Button;
 
 import com.onightperson.hearken.Constants;
 import com.onightperson.hearken.R;
-import com.onightperson.hearken.base.HearkenActivity;
+import com.onightperson.hearken.base.BaseActivity;
 import com.onightperson.hearken.launchmode.flags.FinishOnTaskLaunchTestActivity;
-import com.onightperson.hearken.launchmode.flags.cleartop.AActivity;
+import com.onightperson.hearken.launchmode.otherproperty.AActivity;
 import com.onightperson.hearken.launchmode.singletask.SingleTaskAActivity;
 
 /**
  * Created by liubaozhu on 17/6/13.
  */
 
-public class LaunchModeMainActivity extends HearkenActivity implements View.OnClickListener {
+public class LaunchModeMainActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = "LaunchModeMainActivity";
 
@@ -27,7 +27,10 @@ public class LaunchModeMainActivity extends HearkenActivity implements View.OnCl
     private Button mFinishOnTaskLaunchBtn;
     private Button mClearTopTestBtn;
     private Button mNewTaskTestBtn;
+    private Button mNewTaskAndClearTopBtn;
     private Button mSingleTopTestBtn;
+    private Button mTestATRBtn;
+    private Button mClearTaskBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +52,14 @@ public class LaunchModeMainActivity extends HearkenActivity implements View.OnCl
         mClearTopTestBtn.setOnClickListener(this);
         mNewTaskTestBtn = (Button) findViewById(R.id.flag_actvity_new_task);
         mNewTaskTestBtn.setOnClickListener(this);
+        mNewTaskAndClearTopBtn = (Button) findViewById(R.id.combine_new_task_and_clear_top);
+        mNewTaskAndClearTopBtn.setOnClickListener(this);
+        mClearTaskBtn = (Button) findViewById(R.id.flag_clear_task);
+        mClearTaskBtn.setOnClickListener(this);
         mSingleTopTestBtn = (Button) findViewById(R.id.flag_actvity_single_top);
         mSingleTopTestBtn.setOnClickListener(this);
+        mTestATRBtn = (Button) findViewById(R.id.test_allow_task_reparenting);
+        mTestATRBtn.setOnClickListener(this);
     }
 
     @Override
@@ -77,13 +86,21 @@ public class LaunchModeMainActivity extends HearkenActivity implements View.OnCl
         } else if (v == mFinishOnTaskLaunchBtn) {
             intent = new Intent(this, FinishOnTaskLaunchTestActivity.class);
         } else if (v == mClearTopTestBtn) {
-            intent = new Intent(this, AActivity.class);
+            intent = new Intent(this, com.onightperson.hearken.launchmode.flags.cleartop.AActivity.class);
         } else if (v == mNewTaskTestBtn) {
             intent = new Intent(this, com.onightperson.hearken.launchmode.flags.newtask.AActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         } else if (v == mSingleTopTestBtn) {
             intent = new Intent(this, com.onightperson.hearken.launchmode.flags.singletop.AActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        } else if (v == mTestATRBtn) {
+            intent = new Intent("com.onightperson.otherapp.ENTER_B");
+            intent.setClassName("com.onightperson.otherapp", "com.onightperson.otherapp.BActivity");
+        } else if (v == mNewTaskAndClearTopBtn) {
+            intent = new Intent(this, com.onightperson.hearken.launchmode.flags.newtaskandcleartop.AActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        } else if (v == mClearTaskBtn) {
+            intent = new Intent(this, com.onightperson.hearken.launchmode.flags.cleartask.AActivity.class);
         }
 
         if (intent != null) {

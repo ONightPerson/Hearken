@@ -1,4 +1,4 @@
-package com.onightperson.hearken.launchmode.flags.cleartop;
+package com.onightperson.hearken.launchmode.flags.newtaskandcleartop;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,14 +7,15 @@ import android.widget.Button;
 
 import com.onightperson.hearken.R;
 import com.onightperson.hearken.base.BaseActivity;
+import com.onightperson.hearken.launchmode.LaunchModeMainActivity;
 
 /**
- * Created by liubaozhu on 17/6/15.
+ * Created by liubaozhu on 17/8/7.
  */
 
-public class BActivity extends BaseActivity implements View.OnClickListener {
+public class AActivity extends BaseActivity implements View.OnClickListener {
 
-    private Button mStartCBtn;
+    private Button mStartBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,16 +26,16 @@ public class BActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void initViews() {
-        mStartCBtn = (Button) findViewById(R.id.start_next);
-        mStartCBtn.setText("启动 C Activity");
-        mStartCBtn.setOnClickListener(this);
+        mStartBtn = (Button) findViewById(R.id.start_next);
+        mStartBtn.setText("重新启动 LaunchModeMainActivity");
+        mStartBtn.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         Intent intent = null;
-        if (v == mStartCBtn) {
-            intent = new Intent(this, CActivity.class);
+        if (v == mStartBtn) {
+            intent = new Intent(this, LaunchModeMainActivity.class);
         }
 
         if (intent != null) {

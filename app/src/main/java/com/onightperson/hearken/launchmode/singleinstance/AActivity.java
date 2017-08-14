@@ -6,13 +6,13 @@ import android.view.View;
 import android.widget.Button;
 
 import com.onightperson.hearken.R;
-import com.onightperson.hearken.base.HearkenActivity;
+import com.onightperson.hearken.base.BaseActivity;
 
 /**
  * Created by liubaozhu on 17/6/15.
  */
 
-public class AActivity extends HearkenActivity implements View.OnClickListener {
+public class AActivity extends BaseActivity implements View.OnClickListener {
 
     private Button mStartBtn;
 

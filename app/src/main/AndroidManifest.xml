@@ -15,10 +15,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:taskAffinity=":special">
         <activity android:name=".MainActivity"
-            android:label="MainActivity"
-            android:alwaysRetainTaskState="true">
+            android:excludeFromRecents="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -109,7 +109,22 @@
         <!--测试 FLAG_ACTIVITY_NEW_TASK-->
         <activity android:name=".launchmode.flags.newtask.AActivity"
             android:label="AActivity"
+                  android:launchMode="singleTask"
             android:taskAffinity=":other"/>
+        <!--end-->
+
+        <!--测试 FLAG_ACTIVITY_NEW_TASK && FLAG_ACTIVITY_CLEAR_TOP-->
+        <activity android:name=".launchmode.flags.newtaskandcleartop.AActivity"
+                  android:label="AActivity"
+                  android:taskAffinity=":other"/>
+        <!--end-->
+
+        <!--FLAG_ACTIVITY_CLEAR_TASK-->
+        <activity android:name=".launchmode.flags.cleartask.AActivity"
+            android:label="AActivity"/>
+
+        <activity android:name=".launchmode.flags.cleartask.BActivity"
+            android:label="BActivity"/>
         <!--end-->
 
         <!--测试 FLAG_ACTVITY_SINGLE_TOP-->
@@ -117,6 +132,7 @@
         <activity android:name=".launchmode.flags.singletop.AActivity"
             android:label="AActivity"
             android:taskAffinity=":other"/>
+        <!--end-->
 
         <activity android:name=".datetime.DateTimeActivity"/>
 
@@ -125,7 +141,13 @@
 
         <activity android:name=".acrossprocess.IPCBActivity"
             />
-        <!--end-->
+        
+        <!--测试 allowTaskReparenting-->
+        <activity android:name=".launchmode.otherproperty.AActivity"
+                  android:label="AActivity"
+                  android:taskAffinity="com.hearken.a"
+                  android:allowTaskReparenting="false"
+            android:launchMode="singleTask"/>
 
         <service android:name=".service.MyIntentService"
                  android:process=":background"

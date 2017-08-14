@@ -4,13 +4,13 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.onightperson.hearken.R;
-import com.onightperson.hearken.base.HearkenActivity;
+import com.onightperson.hearken.base.BaseActivity;
 
 /**
  * Created by liubaozhu on 17/6/30.
  */
 
-public class NotifyTestActivity extends HearkenActivity {
+public class NotifyTestActivity extends BaseActivity {
     private static final String TAG = "NotifyTestActivity";
 
     @Override

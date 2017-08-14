@@ -7,13 +7,13 @@ import android.view.View;
 import android.widget.Button;
 
 import com.onightperson.hearken.R;
-import com.onightperson.hearken.base.HearkenActivity;
+import com.onightperson.hearken.base.BaseActivity;
 
 /**
  * Created by liubaozhu on 17/7/25.
  */
 
-public class IPCAActivity extends HearkenActivity implements View.OnClickListener {
+public class IPCAActivity extends BaseActivity implements View.OnClickListener {
     private static final String TAG = "IPCAActivity";
 
     private Button mStartBBtn;
