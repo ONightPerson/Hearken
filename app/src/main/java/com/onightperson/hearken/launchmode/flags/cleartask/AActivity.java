@@ -1,4 +1,4 @@
-package com.onightperson.hearken.launchmode.flags.cleartop;
+package com.onightperson.hearken.launchmode.flags.cleartask;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,9 +12,9 @@ import com.onightperson.hearken.base.BaseActivity;
  * Created by liubaozhu on 17/6/15.
  */
 
-public class BActivity extends BaseActivity implements View.OnClickListener {
+public class AActivity extends BaseActivity implements View.OnClickListener {
 
-    private Button mStartCBtn;
+    private Button mStartBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,16 +25,16 @@ public class BActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void initViews() {
-        mStartCBtn = (Button) findViewById(R.id.start_next);
-        mStartCBtn.setText("启动 C Activity");
-        mStartCBtn.setOnClickListener(this);
+        mStartBtn = (Button) findViewById(R.id.start_next);
+        mStartBtn.setText("启动 B Activity");
+        mStartBtn.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         Intent intent = null;
-        if (v == mStartCBtn) {
-            intent = new Intent(this, CActivity.class);
+        if (v == mStartBtn) {
+            intent = new Intent(this, BActivity.class);
         }
 
         if (intent != null) {

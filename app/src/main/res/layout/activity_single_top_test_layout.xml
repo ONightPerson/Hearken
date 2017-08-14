@@ -48,10 +48,29 @@
         android:text="测试 FLAG_ACTIVITY_NEW_TASK 标志位"/>
 
     <Button
+        android:id="@+id/combine_new_task_and_clear_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试 FLAG_ACTIVITY_NEW_TASK 和 FLAG_ACTIVITY_CLEAR_TOP 组合"/>
+
+    <Button
+        android:id="@+id/flag_clear_task"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试 FLAG_ACTIVITY_CLEAR_TASK"/>
+
+    <Button
         android:id="@+id/flag_actvity_single_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAllCaps="false"
         android:text="测试 FLAG_ACTIVITY_SINGLE_TOP 标志位"/>
+
+    <Button
+        android:id="@+id/test_allow_task_reparenting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="测试 allowTaskReparenting 属性"/>
 
 </LinearLayout>

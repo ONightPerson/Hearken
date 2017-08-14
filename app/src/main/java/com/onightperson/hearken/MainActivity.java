@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import com.onightperson.hearken.acrossprocess.IPCAActivity;
 import com.onightperson.hearken.anim.viewanim.LearnViewAnimActivity;
-import com.onightperson.hearken.base.HearkenActivity;
+import com.onightperson.hearken.base.BaseActivity;
 import com.onightperson.hearken.camera.CameraActivity;
 import com.onightperson.hearken.datetime.DateTimeActivity;
 import com.onightperson.hearken.drawable.DrawableTestActivity;
@@ -23,7 +23,7 @@ import com.onightperson.hearken.toolbar.CoordinatorActivity;
 import com.onightperson.hearken.viewdispatchevent.DispatchEventActivity;
 import com.onightperson.hearken.wave.WaveActivity;
 
-public class MainActivity extends HearkenActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private Button mLaunchWaveBtn;
     private Button mLaunchRecyclerViewBtn;
