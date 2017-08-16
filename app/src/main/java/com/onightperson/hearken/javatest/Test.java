@@ -5,4 +5,11 @@ package com.onightperson.hearken.javatest;
  */
 
 public class Test {
+
+    private Test instance;
+
+    public void setTest(Object newInstance) {
+        instance = (Test) newInstance;
+    }
+
 }
