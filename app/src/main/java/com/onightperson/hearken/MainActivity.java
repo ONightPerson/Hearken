@@ -17,10 +17,11 @@ import com.onightperson.hearken.manager.ManagerTestActivity;
 import com.onightperson.hearken.news.ui.SupportFragmentActivity;
 import com.onightperson.hearken.notify.NotificationActivity;
 import com.onightperson.hearken.progress.ProgressActivity;
+import com.onightperson.hearken.scroll.ScrollTestActivity;
 import com.onightperson.hearken.text.TextChangeActivity;
 import com.onightperson.hearken.recycle.RecyclerTestActivity;
 import com.onightperson.hearken.toolbar.CoordinatorActivity;
-import com.onightperson.hearken.viewdispatchevent.DispatchEventActivity;
+import com.onightperson.hearken.viewworkprinciple.DispatchEventActivity;
 import com.onightperson.hearken.wave.WaveActivity;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
@@ -41,6 +42,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private Button mLaunchModeActivityBtn;
     private Button mDateTimeBtn;
     private Button mIPCBtn;
+    private Button mSlideBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +85,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mDateTimeBtn.setOnClickListener(this);
         mIPCBtn = (Button) findViewById(R.id.ipc_learn);
         mIPCBtn.setOnClickListener(this);
+        mSlideBtn = (Button) findViewById(R.id.slide);
+        mSlideBtn.setOnClickListener(this);
     }
 
     @Override
@@ -121,6 +125,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             intent = new Intent(this, DateTimeActivity.class);
         } else if (v == mIPCBtn) {
             intent = new Intent(this, IPCAActivity.class);
+        } else if (v == mSlideBtn) {
+            intent = new Intent(this, ScrollTestActivity.class);
         }
 
         if (intent != null) {

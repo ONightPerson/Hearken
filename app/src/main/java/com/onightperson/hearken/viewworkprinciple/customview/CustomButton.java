@@ -1,6 +1,7 @@
-package com.onightperson.hearken.viewdispatchevent;
+package com.onightperson.hearken.viewworkprinciple.customview;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -16,6 +17,24 @@ public class CustomButton extends Button {
     public CustomButton(Context context, AttributeSet attrs) {
         super(context, attrs);
         Log.i(TAG, "CustomButton");
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        Log.i(TAG, "onAttachedToWindow");
+        super.onAttachedToWindow();
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        Log.i(TAG, "onMeasure: ");
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        Log.i(TAG, "onDraw: ");
+        super.onDraw(canvas);
     }
 
     @Override

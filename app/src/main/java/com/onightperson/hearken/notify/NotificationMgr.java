@@ -74,6 +74,7 @@ public class NotificationMgr {
         builder.setContentIntent(PendingIntent.getActivity(mContext, 0, new Intent(mContext,
                 MainActivity.class), PendingIntent.FLAG_CANCEL_CURRENT));
         Notification notification = builder.build();
+        notification.flags = Notification.FLAG_NO_CLEAR | Notification.FLAG_FOREGROUND_SERVICE;
         mNotifyManager.notify(Constants.ID_CUSTOM_NOTIFICATION, notification);
     }
 
@@ -99,6 +100,7 @@ public class NotificationMgr {
         builder.setCustomContentView(customContentView);
         builder.setCustomBigContentView(bigContentView);
         Notification notification = builder.build();
+
         mNotifyManager.notify(Constants.ID_BIG_CONTENTVIEW_NOTIFICATION, notification);
 
     }

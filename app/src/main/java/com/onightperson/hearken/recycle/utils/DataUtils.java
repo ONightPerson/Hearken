@@ -3,10 +3,12 @@ package com.onightperson.hearken.recycle.utils;
 import android.content.Context;
 import android.util.TypedValue;
 
+import com.onightperson.hearken.recycle.adapter.ContentAdapter;
 import com.onightperson.hearken.recycle.model.AnimContent;
 import com.onightperson.hearken.recycle.model.ButtonRemoveItemInfo;
 import com.onightperson.hearken.recycle.model.ContactContent;
 import com.onightperson.hearken.recycle.model.ContentBase;
+import com.onightperson.hearken.recycle.model.StudentContent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,9 +21,15 @@ public class DataUtils {
     public static List<ContentBase> getContactInfoList() {
         List<ContentBase> contactInfoList = new ArrayList<>();
 
-        ButtonRemoveItemInfo btnInfo = new ButtonRemoveItemInfo();
-        btnInfo.contentType = 2;
-        contactInfoList.add(btnInfo);
+        StudentContent studentInfo = new StudentContent();
+        studentInfo.contentType = 2;
+        studentInfo.name = "James";
+        contactInfoList.add(studentInfo);
+
+        studentInfo = new StudentContent();
+        studentInfo.contentType = 2;
+        studentInfo.name = "John";
+        contactInfoList.add(studentInfo);
 
         ContactContent contactInfo = new ContactContent();
         contactInfo.name = "Suson";

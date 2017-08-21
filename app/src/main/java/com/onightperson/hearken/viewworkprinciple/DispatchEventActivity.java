@@ -1,4 +1,4 @@
-package com.onightperson.hearken.viewdispatchevent;
+package com.onightperson.hearken.viewworkprinciple;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.onightperson.hearken.R;
+import com.onightperson.hearken.viewworkprinciple.customview.CustomButton;
 
 /**
  * Created by liubaozhu on 17/3/15.
