@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.onightperson.hearken.R;
 import com.onightperson.hearken.recycle.model.ContactContent;
 import com.onightperson.hearken.recycle.model.ContentBase;
+import com.onightperson.hearken.recycle.model.StudentContent;
+import com.onightperson.hearken.scroll.LeftSlideScrollView;
 import com.onightperson.hearken.wave.BottomLayout;
 
 import java.util.List;
@@ -18,7 +20,7 @@ import java.util.List;
  * Created by liubaozhu on 17/2/23.
  */
 
-public class ContentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public abstract class ContentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final String TAG = "ContentAdapter";
     private List<ContentBase> mContentList;
 
@@ -38,8 +40,9 @@ public class ContentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 itemView = inflater.inflate(R.layout.activity_bottom, parent, false);
                 return new AnimViewHolder(itemView);
             case 2:
-                itemView = inflater.inflate(R.layout.botton_layout, parent, false);
-                return new ButtonHolder(itemView);
+                itemView = inflater.inflate(R.layout.student_info, parent, false);
+                return new StudentInfoHolder(itemView);
+
             default:
                 itemView = inflater.inflate(R.layout.cardview_layout, parent, false);
                 return new ContactViewHolder(itemView);
@@ -65,10 +68,16 @@ public class ContentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 contactViewHolder.mEmailTextView.setText(contactInfo.email);
                 contactViewHolder.mAddressTextView.setText(contactInfo.addr);
                 break;
-            case 1:
-
+            case 2:
+                StudentContent studentInfo = (StudentContent) mContentList.get(position);
+                StudentInfoHolder studentInfoHolder = (StudentInfoHolder) holder;
+                studentInfoHolder.mNameView.setText(studentInfo.name);
+                convert(studentInfoHolder, position);
+                break;
         }
     }
+
+    public abstract void convert(StudentInfoHolder viewHolder, int position);
 
     @Override
     public int getItemCount() {
@@ -115,6 +124,19 @@ public class ContentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 mContentList.remove(0);
                 notifyItemChanged(0);
             }
+        }
+    }
+
+    public class StudentInfoHolder extends RecyclerView.ViewHolder {
+        public TextView mNameView;
+        public LeftSlideScrollView mLeftSlideView;
+        public View mLayoutContentView;
+
+        public StudentInfoHolder(View itemView) {
+            super(itemView);
+            mNameView = (TextView) itemView.findViewById(R.id.names);
+            mLeftSlideView = (LeftSlideScrollView) itemView.findViewById(R.id.left_slide_view);
+            mLayoutContentView = itemView.findViewById(R.id.layout_content);
         }
     }
 }

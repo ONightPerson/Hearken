@@ -105,5 +105,12 @@
             android:layout_height="wrap_content"
             android:textAllCaps="false"
             android:text="IPC机制"/>
+
+        <Button
+            android:id="@+id/slide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="侧滑"/>
     </LinearLayout>
 </ScrollView>

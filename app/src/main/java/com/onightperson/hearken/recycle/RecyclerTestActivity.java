@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
+import android.view.WindowManager;
 
 import com.onightperson.hearken.R;
 import com.onightperson.hearken.recycle.adapter.ContentAdapter;
@@ -49,7 +51,13 @@ public class RecyclerTestActivity extends Activity implements View.OnClickListen
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(linearLayoutManager);
         mContentList = DataUtils.getContactInfoList();
-        mRecyclerView.setAdapter(new ContentAdapter(mContentList));
+        mRecyclerView.setAdapter(new ContentAdapter(mContentList) {
+            @Override
+            public void convert(StudentInfoHolder viewHolder, int position) {
+                viewHolder.mLayoutContentView.getLayoutParams().width = getScreenWidth();
+                viewHolder.mNameView.getLayoutParams().width = getScreenWidth();
+            }
+        });
 
 
         mRecyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
@@ -107,6 +115,13 @@ public class RecyclerTestActivity extends Activity implements View.OnClickListen
             }
         });
 
+    }
+
+    private int getScreenWidth() {
+        WindowManager windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
+        DisplayMetrics metrics = new DisplayMetrics();
+        windowManager.getDefaultDisplay().getMetrics(metrics);
+        return metrics.widthPixels;
     }
 
     public static boolean isSlideToBottom(RecyclerView recyclerView) {

@@ -41,7 +41,7 @@
 
         <activity android:name=".listviewex.ListViewExActivity"/>
 
-        <activity android:name=".viewdispatchevent.DispatchEventActivity"/>
+        <activity android:name=".viewworkprinciple.DispatchEventActivity"/>
 
         <activity android:name=".manager.ManagerTestActivity"/>
 
@@ -148,6 +148,14 @@
                   android:taskAffinity="com.hearken.a"
                   android:allowTaskReparenting="false"
             android:launchMode="singleTask"/>
+
+        <!--测试HorizontalListView侧滑动效-->
+        <activity android:name=".scroll.HorizontalScrollViewTestActivity"/>
+
+        <activity android:name=".scroll.ScrollTestActivity"/>
+
+        <activity android:name=".scroll.ScrollViewTestActivity"/>
+        <!--end-->
 
         <service android:name=".service.MyIntentService"
                  android:process=":background"
