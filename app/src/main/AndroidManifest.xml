@@ -41,7 +41,13 @@
 
         <activity android:name=".listviewex.ListViewExActivity"/>
 
+        <!--测试 View 原理相关-->
+        <activity android:name=".viewworkprinciple.ViewMainActivity"/>
+
         <activity android:name=".viewworkprinciple.DispatchEventActivity"/>
+
+        <activity android:name=".viewworkprinciple.layoutinflater.LayoutInflaterTestActivity"/>
+        <!--end-->
 
         <activity android:name=".manager.ManagerTestActivity"/>
 
@@ -136,12 +142,6 @@
 
         <activity android:name=".datetime.DateTimeActivity"/>
 
-        <activity android:name=".acrossprocess.IPCAActivity"
-            android:process=":remote1"/>
-
-        <activity android:name=".acrossprocess.IPCBActivity"
-            />
-        
         <!--测试 allowTaskReparenting-->
         <activity android:name=".launchmode.otherproperty.AActivity"
                   android:label="AActivity"
@@ -157,6 +157,19 @@
         <activity android:name=".scroll.ScrollViewTestActivity"/>
         <!--end-->
 
+        <!--测试序列化-->
+        <activity android:name=".serializable.model.SerializeTestActivity"/>
+        <!--end-->
+
+        <!--ipc-->
+        <activity android:name=".ipc.IPCTestActivity"/>
+
+        <service android:name=".ipc.binder.ComputeServer"
+            android:process=":background"/>
+
+        <service android:name=".ipc.messenger.MessengerService"
+                 android:process=":remote"/>
+
         <service android:name=".service.MyIntentService"
                  android:process=":background"
                  android:exported="true">
@@ -164,6 +177,7 @@
                 <action android:name="action.alarm.notification.for.test"/>
             </intent-filter>
         </service>
+
 
         <service android:name=".notify.MyNotificationListenerService"
             android:label="通知监听服务"

@@ -6,7 +6,7 @@
     <com.onightperson.hearken.scroll.MyHorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="false"
+        android:fillViewport="true"
         android:background="@color/common_red">
 
         <LinearLayout
