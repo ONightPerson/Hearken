@@ -1,4 +1,4 @@
-package com.onightperson.hearken.storage;
+package com.onightperson.hearken.serializable;
 
 import android.os.Environment;
 import android.util.Log;
@@ -15,7 +15,8 @@ public class StorageUtils {
         String dataDir = Environment.getDataDirectory().toString();
         String downloadCacheDir = Environment.getDownloadCacheDirectory().toString();
         String exStorageDir = Environment.getExternalStorageDirectory().toString();
-        String exStorageDirByPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES).toString();
+        String exStorageDirByPath = Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_MOVIES).toString();
         String exStorageState = Environment.getExternalStorageState();
         String rootDir = Environment.getRootDirectory().toString();
         boolean isExStorageEmulated = Environment.isExternalStorageEmulated();

@@ -43,12 +43,14 @@
             android:id="@+id/launch_dispatchevent_activity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="启动DispatchEvent界面"/>
+            android:textAllCaps="false"
+            android:text="启动 View Principle 界面"/>
 
         <Button
             android:id="@+id/launch_managertest_activity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textAllCaps="false"
             android:text="启动ManagerTest界面"/>
 
         <Button
@@ -112,5 +114,12 @@
             android:layout_height="wrap_content"
             android:textAllCaps="false"
             android:text="侧滑"/>
+
+        <Button
+            android:id="@+id/serialize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="序列化"/>
     </LinearLayout>
 </ScrollView>

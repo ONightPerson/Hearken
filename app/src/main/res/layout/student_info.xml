@@ -28,15 +28,20 @@
                     android:src="@drawable/ic_launcher"/>
             </RelativeLayout>
 
-            <TextView
-                android:id="@+id/names"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="13dp"
-                android:gravity="right|center_vertical"
-                android:layout_marginRight="16dp"
-                android:textColor="@color/common_blue"
-                android:text="fefefe"/>
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/names"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="13dp"
+                    android:gravity="right|center_vertical"
+                    android:paddingRight="16dp"
+                    android:textColor="@color/common_blue"
+                    android:text="fefefe"/>
+            </RelativeLayout>
         </LinearLayout>
     </com.onightperson.hearken.scroll.LeftSlideScrollView>
 
