@@ -98,6 +98,7 @@ public class MyNotificationListenerService extends NotificationListenerService {
                 sendInterface = (IInterface) target;
             }
 
+
             Log.i(TAG, "parsePendingIntent: sendInterface: " + sendInterface);
 
             IBinder iBinder = null;
@@ -107,7 +108,7 @@ public class MyNotificationListenerService extends NotificationListenerService {
 
             Log.i(TAG, "parsePendingIntent: iBinder: " + iBinder);
 
-            Object sent = getValue(target, "sent");
+            Object sent = getValue(iBinder, "sent");
             Log.i(TAG, "parsePendingIntent: sent: " + sent);
 
             if (sent instanceof Boolean) {

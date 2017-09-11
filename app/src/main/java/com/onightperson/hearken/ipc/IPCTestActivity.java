@@ -15,8 +15,9 @@ import android.widget.Button;
 
 import com.onightperson.hearken.R;
 import com.onightperson.hearken.base.BaseActivity;
+import com.onightperson.hearken.ipc.binder.ComputeListener;
 import com.onightperson.hearken.ipc.binder.ComputeServer;
-import com.onightperson.hearken.ipc.binder.ComputerImpl;
+import com.onightperson.hearken.ipc.binder.ComputerStub;
 import com.onightperson.hearken.ipc.binder.IComputer;
 import com.onightperson.hearken.ipc.messenger.MessengerService;
 
@@ -29,6 +30,8 @@ public class IPCTestActivity extends BaseActivity implements View.OnClickListene
 
     private Button mComputeBinderBtn;
     private Button mMessengerBtn;
+    private Button mUnregisterBtn;
+    private IComputer mComputer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,8 @@ public class IPCTestActivity extends BaseActivity implements View.OnClickListene
         setContentView(R.layout.activity_ipc_test_layout);
 
         initViews();
+//        Intent intent = new Intent(this, ComputeServer.class);
+//        startService(intent);
     }
 
     private void initViews() {
@@ -43,6 +48,8 @@ public class IPCTestActivity extends BaseActivity implements View.OnClickListene
         mComputeBinderBtn.setOnClickListener(this);
         mMessengerBtn = (Button) findViewById(R.id.messenger);
         mMessengerBtn.setOnClickListener(this);
+        mUnregisterBtn = (Button) findViewById(R.id.unregister_listener);
+        mUnregisterBtn.setOnClickListener(this);
     }
 
     @Override
@@ -51,6 +58,8 @@ public class IPCTestActivity extends BaseActivity implements View.OnClickListene
             startCompute();
         } else if (v == mMessengerBtn) {
            sayHelloByMessenger();
+        } else if (v == mUnregisterBtn) {
+            unregisterListener();
         }
     }
 
@@ -65,14 +74,22 @@ public class IPCTestActivity extends BaseActivity implements View.OnClickListene
         bindService(intent, mBinderConnection, Service.BIND_AUTO_CREATE);
     }
 
+    private void unregisterListener() {
+        if (mComputer != null && mComputer.asBinder().isBinderAlive()) {
+            mComputer.unregisterListener(mListener);
+
+        }
+        unbindService(mBinderConnection);
+    }
+
     private ServiceConnection mBinderConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             Log.i(TAG, "onServiceConnected: service: " + service);
             if (service != null) {
-                IComputer computer = ComputerImpl.asInterface(service);
-                int result = computer.add(1, 2);
-                Log.i(TAG, "onServiceConnected: result: " + result);
+                IComputer computer = ComputerStub.asInterface(service);
+                mComputer = computer;
+                computer.registerListener(mListener);
             }
         }
 
@@ -98,6 +115,13 @@ public class IPCTestActivity extends BaseActivity implements View.OnClickListene
         @Override
         public void onServiceDisconnected(ComponentName name) {
 
+        }
+    };
+
+    private static ComputeListener mListener = new ComputeListener() {
+        @Override
+        public void onAddCalled() {
+            Log.i(TAG, "onAddCalled: add called!");
         }
     };
 }
