@@ -39,6 +39,7 @@
                     android:textSize="13dp"
                     android:gravity="right|center_vertical"
                     android:paddingRight="16dp"
+
                     android:textColor="@color/common_blue"
                     android:text="fefefe"/>
             </RelativeLayout>
