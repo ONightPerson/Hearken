@@ -1,13 +1,5 @@
 package com.onightperson.hearken.javacode;
 
-<<<<<<< HEAD
-import java.util.List;
-=======
-import android.util.Log;
-
-import java.util.ArrayList;
->>>>>>> Look into Binder
-
 /**
  * Created by liubaozhu on 17/8/28.
  */
