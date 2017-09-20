@@ -1,12 +1,11 @@
 package com.onightperson.hearken.javacode;
 
-import java.util.List;
-
 /**
  * Created by liubaozhu on 17/8/28.
  */
 
 public class OperatorTest {
+    private static final String TAG = "OperatorTest";
 
     public static void main(String[] args) {
 
@@ -16,10 +15,5 @@ public class OperatorTest {
 //        long key = (long) a << 32;
 //
 //        System.out.println("key: " + Long.toHexString(key) + ", b: " + Long.toHexString(b));
-
-        List<String> names = null;
-        for (String name: names) {
-            System.out.println("name: " + name);
-        }
     }
 }
