@@ -33,7 +33,7 @@ public class CameraActivity extends Activity implements View.OnClickListener {
     private int mCameraId;
     private Handler mHandler;
     private Camera mCamera;
-    private Preview mPreview;
+    private PreView mPreview;
     private Button mTakePictureBtn;
     private Button mTurnOnFlashLightBtn;
     private Button mTurnOffFlashLightBtn;
@@ -76,7 +76,7 @@ public class CameraActivity extends Activity implements View.OnClickListener {
     }
 
     private void initViews() {
-        mPreview = (Preview) findViewById(R.id.camera_preview);
+        mPreview = (PreView) findViewById(R.id.camera_preview);
         mTakePictureBtn = (Button) findViewById(R.id.take_picture);
         mTakePictureBtn.setOnClickListener(this);
         mTurnOnFlashLightBtn = (Button) findViewById(R.id.turn_on_flash_light);

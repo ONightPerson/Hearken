@@ -15,7 +15,7 @@ import java.util.List;
  * Created by liubaozhu on 17/4/18.
  */
 
-public class Preview extends FrameLayout implements SurfaceHolder.Callback {
+public class PreView extends FrameLayout implements SurfaceHolder.Callback {
     private static final String TAG = "Preview";
 
     private SurfaceView mSurfaceView;
@@ -23,7 +23,7 @@ public class Preview extends FrameLayout implements SurfaceHolder.Callback {
     private Camera mCamera;
     private List<Camera.Size> mSupportedPreviewSizes;
 
-    public Preview(Context context, AttributeSet attrs) {
+    public PreView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mSurfaceView = new SurfaceView(context);
         addView(mSurfaceView);
