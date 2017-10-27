@@ -111,7 +111,7 @@
             app:layout_anchor="@id/cardview1"
             app:layout_anchorGravity="bottom|end"/>
 
-        <com.onightperson.hearken.wave.Wave
+        <com.onightperson.hearken.viewworkprinciple.wave.Wave
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="@dimen/activity_horizontal_margin"

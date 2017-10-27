@@ -37,6 +37,8 @@
     <string name="launch_singletop_a_activity">launch singleTopA</string>
     <string name="launch_singletask_a_activity">测试 singleTask -> 启动 A</string>
     <string name="launch_singleInstance_a_activity">测试 singleInstance -> 启动 A</string>
+    <string name="send_msg_1">发送消息1</string>
+    <string name="send_msg_2">发送消息2</string>
 
 
 </resources>

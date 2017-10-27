@@ -25,7 +25,7 @@ public class NotificationActivity extends Activity implements View.OnClickListen
     private Button mStartListenerServiceBtn;
     private Button mStartIntentServiceNotifyBtn;
     private Button mStartReadPermBtn;
-
+    private Button mSendContinuousNotificationBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +54,8 @@ public class NotificationActivity extends Activity implements View.OnClickListen
         mStartIntentServiceNotifyBtn.setOnClickListener(this);
         mStartReadPermBtn = (Button) findViewById(R.id.start_read_perm_activity);
         mStartReadPermBtn.setOnClickListener(this);
+        mSendContinuousNotificationBtn = (Button) findViewById(R.id.post_continuous_notifications);
+        mSendContinuousNotificationBtn.setOnClickListener(this);
     }
 
     @Override
@@ -80,6 +82,9 @@ public class NotificationActivity extends Activity implements View.OnClickListen
             NotificationMgr.getInstance(this).sendNotificationsOneByOne();
             Object test = null;
             Log.i(TAG, "onClick: test: " + test);
+        } else if (v == mSendContinuousNotificationBtn) {
+            Log.i(TAG, "onClick: mSendContinuousNotificationBtn");
+            NotificationMgr.getInstance(this).sendContinuousNotifications();
         }
     }
 }

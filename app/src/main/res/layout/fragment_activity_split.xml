@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/left_fragment"
-        android:name="com.onightperson.hearken.news.ui.NewsTitleFragment"
+        android:name="com.onightperson.hearken.viewworkprinciple.news.ui.NewsTitleFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
@@ -19,7 +19,7 @@
 
         <fragment
             android:id="@+id/right_fragment"
-            android:name="com.onightperson.hearken.news.ui.SupportFragment"
+            android:name="com.onightperson.hearken.viewworkprinciple.news.ui.SupportFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"/>

@@ -59,4 +59,10 @@
         android:layout_height="wrap_content"
         android:text="启动系统读取通知权限页面"
         android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/post_continuous_notifications"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="连续发送通知"/>
 </LinearLayout>

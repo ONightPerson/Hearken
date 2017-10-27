@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.onightperson.hearken.wave.BottomLayout
+<com.onightperson.hearken.viewworkprinciple.wave.BottomLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/bottom_layout"
     android:layout_width="match_parent"
@@ -13,20 +13,20 @@
         android:layout_alignParentBottom="true"
         android:orientation="vertical">
 
-        <com.onightperson.hearken.wave.Wave
+        <com.onightperson.hearken.viewworkprinciple.wave.Wave
             android:id="@+id/wave_view"
             android:layout_width="match_parent"
             android:layout_height="9dp"/>
 
         <view
             android:id="@+id/still_view"
-            class="com.onightperson.hearken.wave.Wave$StillView"
+            class="com.onightperson.hearken.viewworkprinciple.wave.Wave$StillView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"/>
     </LinearLayout>-->
     
-    <com.onightperson.hearken.wave.Wave
+    <com.onightperson.hearken.viewworkprinciple.wave.Wave
         android:id="@+id/wave"
         android:layout_width="match_parent"
         android:layout_height="12dp"
@@ -90,4 +90,4 @@
             android:layout_centerVertical="true"
             android:background="#19000000"/>
     </RelativeLayout>
-</com.onightperson.hearken.wave.BottomLayout>
+</com.onightperson.hearken.viewworkprinciple.wave.BottomLayout>

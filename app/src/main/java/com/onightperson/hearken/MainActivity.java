@@ -5,25 +5,26 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.onightperson.hearken.anim.viewanim.LearnViewAnimActivity;
+import com.onightperson.hearken.viewworkprinciple.anim.viewanim.LearnViewAnimActivity;
 import com.onightperson.hearken.base.BaseActivity;
 import com.onightperson.hearken.camera.CameraActivity;
 import com.onightperson.hearken.datetime.DateTimeActivity;
-import com.onightperson.hearken.drawable.DrawableTestActivity;
+import com.onightperson.hearken.viewworkprinciple.anim.drawable.DrawableTestActivity;
+import com.onightperson.hearken.handler.HandlerTestActivity;
 import com.onightperson.hearken.ipc.IPCTestActivity;
 import com.onightperson.hearken.launchmode.LaunchModeMainActivity;
 import com.onightperson.hearken.listviewex.ListViewExActivity;
 import com.onightperson.hearken.manager.ManagerTestActivity;
-import com.onightperson.hearken.news.ui.SupportFragmentActivity;
+import com.onightperson.hearken.viewworkprinciple.news.ui.SupportFragmentActivity;
 import com.onightperson.hearken.notify.NotificationActivity;
-import com.onightperson.hearken.progress.ProgressActivity;
+import com.onightperson.hearken.viewworkprinciple.progress.ProgressActivity;
 import com.onightperson.hearken.scroll.ScrollTestActivity;
 import com.onightperson.hearken.serializable.model.SerializeTestActivity;
-import com.onightperson.hearken.text.TextChangeActivity;
-import com.onightperson.hearken.recycle.RecyclerTestActivity;
-import com.onightperson.hearken.toolbar.CoordinatorActivity;
+import com.onightperson.hearken.viewworkprinciple.text.TextChangeActivity;
+import com.onightperson.hearken.viewworkprinciple.recycle.RecyclerTestActivity;
+import com.onightperson.hearken.viewworkprinciple.toolbar.CoordinatorActivity;
 import com.onightperson.hearken.viewworkprinciple.ViewMainActivity;
-import com.onightperson.hearken.wave.WaveActivity;
+import com.onightperson.hearken.viewworkprinciple.wave.WaveActivity;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
@@ -45,6 +46,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private Button mIPCBtn;
     private Button mSlideBtn;
     private Button mSerializeTestBtn;
+    private Button mHandlerTestBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +93,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mSlideBtn.setOnClickListener(this);
         mSerializeTestBtn = (Button) findViewById(R.id.serialize);
         mSerializeTestBtn.setOnClickListener(this);
+        mHandlerTestBtn = (Button) findViewById(R.id.test_handler);
+        mHandlerTestBtn.setOnClickListener(this);
     }
 
     @Override
@@ -133,6 +137,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             intent = new Intent(this, ScrollTestActivity.class);
         } else if (v == mSerializeTestBtn) {
             intent = new Intent(this, SerializeTestActivity.class);
+        } else if (v == mHandlerTestBtn) {
+            intent = new Intent(this, HandlerTestActivity.class);
         }
 
         if (intent != null) {

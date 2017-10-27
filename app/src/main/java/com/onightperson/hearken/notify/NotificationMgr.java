@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 import android.widget.RemoteViews;
 
 import com.onightperson.hearken.Constants;
@@ -18,9 +19,13 @@ import com.onightperson.hearken.service.MyIntentService;
  */
 
 public class NotificationMgr {
+    private static final String TAG = "NotificationMgr";
 
     private static volatile NotificationMgr sInstance;
     private static int mNotificationId = 100;
+    private static final int COUNT_POST_NOTIFICATION = 200;
+
+
     private Context mContext;
     private NotificationManager mNotifyManager = null;
 
@@ -69,13 +74,13 @@ public class NotificationMgr {
     public void sendCustomNotification() {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext);
         RemoteViews contentViews = new RemoteViews(mContext.getPackageName(), R.layout.notification_item_layout);
+        contentViews.setImageViewResource(R.id.image_view, R.drawable.quick_helper_float_window_circle_view_white_bkg);
         builder.setContent(contentViews);
         builder.setSmallIcon(R.drawable.ic_launcher);
         builder.setContentIntent(PendingIntent.getActivity(mContext, 0, new Intent(mContext,
                 MainActivity.class), PendingIntent.FLAG_CANCEL_CURRENT));
         Notification notification = builder.build();
-        notification.flags = Notification.FLAG_NO_CLEAR | Notification.FLAG_FOREGROUND_SERVICE;
-        mNotifyManager.notify(Constants.ID_CUSTOM_NOTIFICATION, notification);
+        mNotifyManager.notify(mNotificationId++, notification);
     }
 
     public void sendMutiBtnNotification() {
@@ -131,5 +136,31 @@ public class NotificationMgr {
         mNotifyManager.notify(mNotificationId++, notification);
     }
 
+    public void sendContinuousNotifications() {
 
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext);
+                    builder.setSmallIcon(R.drawable.ic_launcher);
+                    builder.setContentText(mContext.getString(R.string.notification_alarm_text));
+                    builder.setContentIntent(PendingIntent.getActivity(mContext, 0, new Intent(mContext,
+                            NotificationActivity.class), PendingIntent.FLAG_CANCEL_CURRENT));
+                    Log.i(TAG, "sendContinuousNotifications: ");
+                    builder.setContentTitle(String.format(
+                            mContext.getString(R.string.notification_alarm_title), mNotificationId));
+                    Notification notification = builder.build();
+                    notification.flags |= Notification.FLAG_AUTO_CANCEL;
+                    mNotifyManager.notify(mNotificationId++, notification);
+
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
+    }
 }
