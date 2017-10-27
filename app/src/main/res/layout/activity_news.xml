@@ -8,5 +8,5 @@
         android:id="@+id/news_title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.onightperson.hearken.news.ui.NewsTitleFragment"/>
+        android:name="com.onightperson.hearken.viewworkprinciple.news.ui.NewsTitleFragment"/>
 </LinearLayout>

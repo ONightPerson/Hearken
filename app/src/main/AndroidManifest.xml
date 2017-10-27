@@ -26,18 +26,18 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".news.ui.SupportFragmentActivity"/>
+        <activity android:name=".viewworkprinciple.news.ui.SupportFragmentActivity"/>
 
-        <activity android:name=".anim.CustomViewActivity"/>
+        <activity android:name=".viewworkprinciple.anim.CustomViewActivity"/>
 
-        <activity android:name=".recycle.RecyclerTestActivity"/>
+        <activity android:name=".viewworkprinciple.recycle.RecyclerTestActivity"/>
 
-        <activity android:name=".wave.WaveActivity"
+        <activity android:name=".viewworkprinciple.wave.WaveActivity"
             android:hardwareAccelerated="false"/>
 
-        <activity android:name=".text.TextChangeActivity"/>
+        <activity android:name=".viewworkprinciple.text.TextChangeActivity"/>
 
-        <activity android:name=".toolbar.CoordinatorActivity"/>
+        <activity android:name=".viewworkprinciple.toolbar.CoordinatorActivity"/>
 
         <activity android:name=".listviewex.ListViewExActivity"/>
 
@@ -51,16 +51,16 @@
 
         <activity android:name=".manager.ManagerTestActivity"/>
 
-        <activity android:name=".anim.viewanim.LearnViewAnimActivity"/>
+        <activity android:name=".viewworkprinciple.anim.viewanim.LearnViewAnimActivity"/>
 
-        <activity android:name=".news.ui.EmptyFragmentActivity"/>
+        <activity android:name=".viewworkprinciple.news.ui.EmptyFragmentActivity"/>
 
         <activity android:name=".camera.CameraActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".drawable.DrawableTestActivity"/>
+        <activity android:name=".viewworkprinciple.anim.drawable.DrawableTestActivity"/>
 
-        <activity android:name=".progress.ProgressActivity"/>
+        <activity android:name=".viewworkprinciple.progress.ProgressActivity"/>
 
         <activity android:name=".notify.NotificationActivity"/>
 
@@ -163,6 +163,10 @@
 
         <!--ipc-->
         <activity android:name=".ipc.IPCTestActivity"/>
+
+        <!--测试 Handler -->
+        <activity android:name=".handler.HandlerTestActivity"/>
+        <!--end-->
 
         <service android:name=".ipc.binder.ComputeServer"
             android:process=":background"/>
