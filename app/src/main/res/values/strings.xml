@@ -39,6 +39,7 @@
     <string name="launch_singleInstance_a_activity">测试 singleInstance -> 启动 A</string>
     <string name="send_msg_1">发送消息1</string>
     <string name="send_msg_2">发送消息2</string>
+    <string name="get_volume_paths">获取可用的挂载点</string>
 
 
 </resources>

@@ -168,6 +168,9 @@
         <activity android:name=".handler.HandlerTestActivity"/>
         <!--end-->
 
+        <!--测试与存储、文件相关-->
+        <activity android:name=".file.FileTestActivity"/>
+
         <service android:name=".ipc.binder.ComputeServer"
             android:process=":background"/>
 
