@@ -5,6 +5,91 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+
+        <LinearLayout
+            android:id="@+id/top_layout"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="vertical"
+            android:background="@color/common_dark_grey">
+
+            <ImageView
+                android:id="@+id/jfef"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_launcher" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/one_view"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/ic_launcher"
+            android:layout_alignBottom="@id/top_layout" />
+
+        <ImageView
+            android:id="@+id/other_view"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="56dp"
+            android:layout_marginBottom="20dp"
+            android:layout_alignBottom="@id/top_layout"
+            android:src="@drawable/image_test_background_clamp"/>
+
+        <LinearLayout
+            android:id="@+id/one_tips_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/one_view"
+            android:layout_alignRight="@id/one_view"
+            android:layout_marginRight="-16dp"
+            android:layout_marginTop="-16dp"
+            android:background="@drawable/clean_bg_tips">
+
+            <TextView
+                android:id="@+id/recycle_bin_pop_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:paddingBottom="7dp"
+                android:text="这是一个图标"
+                android:textColor="@color/common_white"
+                android:textSize="13dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/other_tips_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/other_view"
+            android:layout_alignRight="@id/other_view"
+            android:layout_marginRight="-16dp"
+            android:layout_marginTop="-16dp"
+            android:background="@drawable/clean_bg_tips">
+
+            <TextView
+                android:id="@+id/cloud_guide_pop_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:paddingBottom="7dp"
+                android:text="这是另一个图标"
+                android:textColor="@color/common_white"
+                android:textSize="13dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
     <ProgressBar
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -18,5 +103,11 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         tools:text="宝宝"/>
+
+    <Button
+        android:id="@+id/change_pos_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="改变图标位置"/>
 
 </LinearLayout>

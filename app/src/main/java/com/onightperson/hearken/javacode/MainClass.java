@@ -1,6 +1,8 @@
 package com.onightperson.hearken.javacode;
 
 
+import android.util.Log;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -93,12 +95,27 @@ public class MainClass extends ClassLoader {
 //            Method setTestMethod = testClass.getDeclaredMethod("setTest", java.lang.Object.class);
 //            setTestMethod.invoke(o1, o2);
             System.out.println("loader: " + o1.getClass().getClassLoader());
+
+            testBoolean();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
+        }
+    }
+
+    private static void testBoolean() {
+        ResultItem success = new ResultItem();
+        anotherMethod(success);
+        System.out.println("success: " + success.success);
+
+    }
+
+    private static void anotherMethod(ResultItem result) {
+        for (int i = 0; i < 2; i++) {
+            result.success = true;
         }
     }
 }

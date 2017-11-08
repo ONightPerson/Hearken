@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.onightperson.hearken.file.FileTestActivity;
 import com.onightperson.hearken.viewworkprinciple.anim.viewanim.LearnViewAnimActivity;
 import com.onightperson.hearken.base.BaseActivity;
 import com.onightperson.hearken.camera.CameraActivity;
@@ -47,6 +48,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private Button mSlideBtn;
     private Button mSerializeTestBtn;
     private Button mHandlerTestBtn;
+    private Button mStorageTestBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +97,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mSerializeTestBtn.setOnClickListener(this);
         mHandlerTestBtn = (Button) findViewById(R.id.test_handler);
         mHandlerTestBtn.setOnClickListener(this);
+        mStorageTestBtn = (Button) findViewById(R.id.test_storage);
+        mStorageTestBtn.setOnClickListener(this);
     }
 
     @Override
@@ -139,6 +143,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             intent = new Intent(this, SerializeTestActivity.class);
         } else if (v == mHandlerTestBtn) {
             intent = new Intent(this, HandlerTestActivity.class);
+        } else if (v == mStorageTestBtn) {
+            intent = new Intent(this, FileTestActivity.class);
         }
 
         if (intent != null) {
