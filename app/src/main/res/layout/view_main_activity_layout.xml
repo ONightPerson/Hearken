@@ -14,8 +14,15 @@
     <Button
         android:id="@+id/layout_inflater_test_btn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:textAllCaps="false"
         android:text="测试 LayoutInflater"/>
+
+
+    <com.onightperson.hearken.viewworkprinciple.customview.CustomButton
+        android:id="@+id/custom_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="点歌" />
 
 </LinearLayout>
