@@ -65,7 +65,7 @@ public class MyNotificationListenerService extends NotificationListenerService {
 
     @Override
     public void onNotificationPosted(StatusBarNotification sbn) {
-        super.onNotificationPosted(sbn);
+        // 解析通知
     }
 
     @Override
