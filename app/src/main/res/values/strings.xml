@@ -41,5 +41,18 @@
     <string name="send_msg_2">发送消息2</string>
     <string name="get_volume_paths">获取可用的挂载点</string>
 
+    <string name="listener_disabled">监听关闭</string>
+    <string name="listener_enabled">监听启用</string>
+
+    <string name="save">保存数据</string>
+    <string name="pull">拉取</string>
+
+    <string name="save_prompt">已保存到缓存目录%s</string>
+
+    <string name="enter_listener_setting">进入监听设置</string>
+
+    <string name="granted_fail_warning">授权失败，无法使用此APP</string>
+    <string name="granted_success">已开启相关权限</string>
+
 
 </resources>
