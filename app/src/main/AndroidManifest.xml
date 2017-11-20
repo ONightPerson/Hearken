@@ -188,16 +188,7 @@
         </service>
 
 
-        <!--<service android:name=".notify.MyNotificationListenerService"-->
-            <!--android:label="通知监听服务"-->
-            <!--android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">-->
-
-            <!--<intent-filter>-->
-                <!--<action android:name="android.service.notification.NotificationListenerService"/>-->
-            <!--</intent-filter>-->
-        <!--</service>-->
-
-        <service android:name=".notify.notificationparse.parse.ListenerService"
+        <service android:name=".notify.MyNotificationListenerService"
             android:label="通知监听服务"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
 
@@ -206,6 +197,4 @@
             </intent-filter>
         </service>
     </application>
-
-
 </manifest>
