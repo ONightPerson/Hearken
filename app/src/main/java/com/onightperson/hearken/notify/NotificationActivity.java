@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.onightperson.hearken.R;
-import com.onightperson.hearken.notify.notificationparse.parse.ParseNotificationActivity;
 
 /**
  * Created by liubaozhu on 17/6/13.
@@ -78,8 +77,8 @@ public class NotificationActivity extends Activity implements View.OnClickListen
         } else if (v == mStartIntentServiceNotifyBtn) {
             NotificationMgr.getInstance(this).sendStartServiceNotification();
         } else if (v == mStartReadPermBtn) {
-            Intent intent = new Intent(this, ParseNotificationActivity.class);
-            startActivity(intent);
+//            Intent intent = new Intent(this, ParseNotificationActivity.class);
+//            startActivity(intent);
         } else if (v == mSendNotifications) {
             NotificationMgr.getInstance(this).sendNotificationsOneByOne();
             Object test = null;
