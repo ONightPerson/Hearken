@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Pair;
 
 import com.onightperson.hearken.notify.notificationparse.zakermodel.PushDataModel;
@@ -59,6 +60,7 @@ public class ReportCollectUtils {
     private static final String PKG_ZAKER = "com.myzaker.ZAKER_Phone";
     private static final String PKG_CNTV = "cn.cntvnews";
     private static final String PKG_YIDIAN = "com.hipu.yidian";
+    private static final String PKG_UC_MOBILE = "com.UCMobile";
 
     public static Queue<String> queue = new LinkedBlockingQueue<>(10);
 
@@ -117,6 +119,9 @@ public class ReportCollectUtils {
             case PKG_ZAKER:
                 result = zakerUrl(intent);
                 break;
+            case PKG_UC_MOBILE:       // UC浏览器
+                result = ucMobileUrl(intent);
+                break;
             default:
                 result = null;
                 break;
@@ -128,6 +133,19 @@ public class ReportCollectUtils {
         NotificationBean cp = bean.copy();
         cp.appendInfoContent(REPORT_TAG, result);
         return cp;
+    }
+
+    private static Pair<String, String> ucMobileUrl(Intent intent) {
+        Bundle bundle = intent.getExtras();
+        if (bundle != null) {
+            String openUrl = bundle.getString("openurl");
+            if (!TextUtils.isEmpty(openUrl)) {
+                return new Pair<>("Intent.EXTRA.openurl", openUrl);
+            }
+        } else {
+            return new Pair<>(KEY_LOGIC_JUDGE, VALUE_END);
+        }
+        return null;
     }
 
     // 腾讯新闻

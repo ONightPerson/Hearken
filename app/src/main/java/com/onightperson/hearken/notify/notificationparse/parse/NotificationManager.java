@@ -66,7 +66,6 @@ class NotificationManager {
             sParcelledDataField.setAccessible(true);
         } catch (Throwable e) {
             try {
-                Class.forName("android.os.BaseBundle");
                 Class<?> baseBundleClass = NotificationManager.class.getClassLoader()
                         .loadClass("android.os.BaseBundle");
                 sParcelledDataField = baseBundleClass.getDeclaredField("mParcelledData");
