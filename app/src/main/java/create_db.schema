@@ -1,0 +1,6 @@
+PRAGMA user_version = 1;
+DROP TABLE IF EXISTS student_info;
+CREATE TABLE IF NOT EXISTS student_info(id INTEGER PRIMARY KEY, name TEXT, age INTEGER);
+INSERT INTO student_info(id, name, age) values ('0', 'Jack', '19');
+INSERT INTO student_info(id, name, age) values ('1', 'James', '20');
+INSERT INTO student_info(id, name, age) values ('2', 'Lily', '18');

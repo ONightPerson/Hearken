@@ -2,6 +2,7 @@ package com.onightperson.hearken.notify;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -56,6 +57,9 @@ public class NotificationActivity extends Activity implements View.OnClickListen
         mStartReadPermBtn.setOnClickListener(this);
         mSendContinuousNotificationBtn = (Button) findViewById(R.id.post_continuous_notifications);
         mSendContinuousNotificationBtn.setOnClickListener(this);
+
+        // 查看版本
+        Log.i(TAG, "initViews: sdk_version: " + Build.VERSION.SDK_INT);
     }
 
     @Override
